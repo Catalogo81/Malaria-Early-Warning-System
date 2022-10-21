@@ -1,661 +1,661 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--  MainScreen Activity  -->
-    <style name="authentications_layout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:background">@drawable/gradient4</item>
-    </style>
-
-    <style name="stufa_layout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/stufa_margin_top</item>
-        <item name="android:fontFamily">@font/berkshire_swash</item>
-        <item name="android:text">@string/app_name</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
-        <item name="android:textSize">@dimen/stufa_text_size</item>
-        <item name="android:textStyle">bold|italic</item>
-    </style>
-
-    <style name="stufa_layout_main_screen">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/berkshire_swash</item>
-        <item name="android:text">@string/app_name</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
-        <item name="android:textSize">@dimen/char_text_size</item>
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:gravity">center_horizontal</item>
-    </style>
-
-    <style name="tv_student_financial_Assistant">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/switch_margin_start</item>
-        <item name="android:text">@string/student_financial_assistance_app</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">@dimen/message_text_size</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="tv_student_financial_Assistant_main_screen">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:text">@string/student_financial_assistance_app</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">@dimen/message_text_size</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <!--  Login Activity  -->
-    <style name="til_username_login_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="errorEnabled">true</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="startIconDrawable">@drawable/person</item>
-        <item name="android:hint">@string/please_enter_your_username</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="username_login_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textEmailAddress</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_enter_your_password_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="errorEnabled">true</item>
-        <item name="startIconDrawable">@drawable/lock</item>
-        <item name="endIconMode">password_toggle</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/please_enter_your_password</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="enter_your_password_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPassword</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="button_login">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/button_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/button_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/password_margin_top</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/login</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-    <style name="tv_forgot_password">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:onClick">Forgot Password</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/forgot_password</item>
-        <item name="android:textSize">@dimen/tv_text_size</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
-    </style>
-
-    <style name="tv_dont_have_an_account">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/switch_margin_start</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/dont_have_an_account_create_one_here</item>
-        <item name="android:textSize">@dimen/dont_have_account_text_size</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
-    </style>
-
-    <!--  Create Account Activity  -->
-    <style name="content_layout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="til_firstname_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="startIconDrawable">@drawable/person</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/firstname</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="firstname_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPersonName</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_lastname_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="startIconDrawable">@drawable/person</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/lastname</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="lastname_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPersonName</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_username_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="startIconDrawable">@drawable/email</item>
-        <item name="errorEnabled">true</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/username_email</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="username_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textEmailAddress</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="tv_select_your_campus">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:text">@string/select_your_campus</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/campus_name_text_size</item>
-    </style>
-
-    <style name="switchPos">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/no_margin_top</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:text">@string/bloemfontein_campus</item>
-        <item name="android:layoutDirection">rtl</item>
-        <item name="android:textOff">@string/bloemfontein</item>
-        <item name="android:textOn">@string/welkom</item>
-        <item name="android:textSize">@dimen/campus_name_text_size</item>
-    </style>
-
-    <style name="FloatingHintStyle" parent="@android:style/TextAppearance">
-        <item name= "android:textColor">@color/light_red</item>
-    </style>
-
-    <style name="til_student_number_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="startIconDrawable">@drawable/card</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/student_number</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="student_number_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">number</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="counterEnabled">true</item>
-        <item name="counterMaxLength">@dimen/counter_max</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_funding_type_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="startIconDrawable">@drawable/money</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/funding_type</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="funding_type_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPersonName</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_bursar_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="startIconDrawable">@drawable/bursar</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/bursar</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-    </style>
-
-    <style name="bursar_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPersonName</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_enter_password_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="endIconMode">password_toggle</item>
-        <item name="errorEnabled">true</item>
-        <item name="startIconDrawable">@drawable/lock</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/enter_password</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-    </style>
-
-    <style name="enter_password_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPassword</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="til_confirm_password_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>
-        <item name="endIconMode">password_toggle</item>
-        <item name="errorEnabled">true</item>
-        <item name="startIconDrawable">@drawable/lock</item>
-        <item name="hintTextAppearance">@style/FloatingHintStyle</item>
-        <item name="android:hint">@string/confirm_password</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-    </style>
-
-    <style name="confirm_password_text_input_edit_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">textPassword</item>
-        <item name="android:background">@drawable/buttons</item>
-        <item name="android:editTextColor">#FFFFFF</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="button_create_account">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/button_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/button_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/til_margin_top</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/sign_up</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-    <style name="tv_already_have_an_account">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/already_have_an_account</item>
-        <item name="android:textSize">@dimen/campus_name_text_size</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
-    </style>
-
-    <style name="iwResetPassword">
-        <item name="android:layout_width">@dimen/tvProgressbar_margin_top</item>
-        <item name="android:layout_height">@dimen/tvProgressbar_margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/buttons_margin_top</item>
-        <item name="srcCompat">@drawable/reset_password</item>
-    </style>
-
-    <style name="tv_reset_password">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/you_will_be_sent_a_link</item>
-        <item name="android:textSize">@dimen/switch_margin_start</item>
-        <item name="android:textColor">#000000</item>
-    </style>
-
-    <style name="et_reset_password_email">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/buttons_margin_top</item>
-        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:hint">@string/please_enter_your_email_address</item>
-        <item name="android:inputType">textEmailAddress</item>
-    </style>
-
-    <style name="button_submit">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/button_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/button_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/switch_margin_start</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/submit</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-    <style name="greeting">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/buttons_margin_top</item>
-        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
-    </style>
-
-    <style name="tv_greeting">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">@dimen/greeting_weight</item>
-        <item name="android:layout_marginStart">@dimen/margin_top</item>
-        <item name="android:layout_marginEnd">@dimen/margin_top</item>
-        <item name="android:textColor">@color/navy_blue</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/hello</item>
-        <item name="android:textSize">@dimen/tv_greeting</item>
-    </style>
-
-    <style name="tv_fullname">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/tv_greeting</item>
-        <item name="android:fontFamily">@font/berkshire_swash</item>
-        <item name="android:gravity">center_horizontal</item>
-    </style>
-
-    <style name="tv_assistance">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">@color/navy_blue</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/how_can_we_be_of_your_assistance</item>
-        <item name="android:textSize">@dimen/tv_greeting</item>
-    </style>
-
-    <style name="progress_bar_layout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:visibility">gone</item>
-        <item name="android:layout_marginStart">@dimen/stufa_margin_top</item>
-    </style>
-
-    <style name="progress_bar_style">
-        <item name="android:layout_width">@dimen/tvProgressbar_layout_weight</item>
-        <item name="android:layout_height">@dimen/tvProgressbar_layout_weight</item>
-        <item name="android:layout_marginTop">@dimen/tvProgressbar_margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/already_have_an_account</item>
-        <item name="android:textSize">@dimen/tv_text_size</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="tv_create_query">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:text">@string/create_a_query</item>
-        <item name="android:textSize">@dimen/message_query_text_size</item>
-    </style>
-
-    <style name="btn_allowance_related">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/message_text_size</item>
-        <item name="android:layout_marginEnd">@dimen/message_text_size</item>
-        <item name="android:layout_marginTop">@dimen/switch_padding</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/allowance_related_query</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-
-    <style name="tv_book_allowances">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/book_allowance</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-    <style name="tv_meal_allowances">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/meal_allowance</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-    <style name="tv_accomodation_allowances">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/accommodation_or_transport_allowance</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-    <style name="btn_booking_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/message_text_size</item>
-        <item name="android:layout_marginEnd">@dimen/message_text_size</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/booking</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-    <style name="tv_booking_message_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/booking_message</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-
-    <style name="btn_general_query_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/message_text_size</item>
-        <item name="android:layout_marginEnd">@dimen/message_text_size</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/general_query</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-    <style name="tv_general_query_message">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/general_query_message</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-    <style name="tv_create_request">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:text">@string/create_a_request</item>
-        <item name="android:textSize">@dimen/message_query_text_size</item>
-    </style>
-
-    <style name="btn_financial_statement_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/message_text_size</item>
-        <item name="android:layout_marginEnd">@dimen/message_text_size</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/financial_statement</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-    <style name="tv_financil_statement_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:text">@string/this_allows_statement</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-
-    <style name="btn_financial_clearance_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/message_text_size</item>
-        <item name="android:layout_marginEnd">@dimen/message_text_size</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/financial_clearance</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-
-    <style name="tv_financil_clearance_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:text">@string/this_allows_clearance</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
-
-    <style name="btn_fill_form_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/message_text_size</item>
-        <item name="android:layout_marginEnd">@dimen/message_text_size</item>
-        <item name="android:layout_marginTop">@dimen/margin_top</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:text">@string/fill_form</item>
-        <item name="android:background">@drawable/buttons</item>
-    </style>
-
-
-    <style name="tv_fill_form_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:text">@string/this_allows_fill_form</item>
-        <item name="android:textSize">@dimen/text_size</item>
-    </style>
+<!--    &lt;!&ndash;  MainScreen Activity  &ndash;&gt;-->
+<!--    <style name="authentications_layout">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">match_parent</item>-->
+<!--        <item name="android:orientation">vertical</item>-->
+<!--        <item name="android:background">@drawable/gradient4</item>-->
+<!--    </style>-->
+
+<!--    <style name="stufa_layout">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/stufa_margin_top</item>-->
+<!--        <item name="android:fontFamily">@font/berkshire_swash</item>-->
+<!--        <item name="android:text">@string/app_name</item>-->
+<!--        <item name="android:textColor">@android:color/holo_orange_light</item>-->
+<!--        <item name="android:textSize">@dimen/stufa_text_size</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--    </style>-->
+
+<!--    <style name="stufa_layout_main_screen">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:fontFamily">@font/berkshire_swash</item>-->
+<!--        <item name="android:text">@string/app_name</item>-->
+<!--        <item name="android:textColor">@android:color/holo_orange_light</item>-->
+<!--        <item name="android:textSize">@dimen/char_text_size</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_student_financial_Assistant">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:text">@string/student_financial_assistance_app</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:textSize">@dimen/message_text_size</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_student_financial_Assistant_main_screen">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:text">@string/student_financial_assistance_app</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:textSize">@dimen/message_text_size</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash;  Login Activity  &ndash;&gt;-->
+<!--    <style name="til_username_login_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="errorEnabled">true</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="startIconDrawable">@drawable/person</item>-->
+<!--        <item name="android:hint">@string/please_enter_your_username</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="username_login_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textEmailAddress</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_enter_your_password_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="errorEnabled">true</item>-->
+<!--        <item name="startIconDrawable">@drawable/lock</item>-->
+<!--        <item name="endIconMode">password_toggle</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/please_enter_your_password</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="enter_your_password_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPassword</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="button_login">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/button_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/button_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/password_margin_top</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/login</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_forgot_password">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:onClick">Forgot Password</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/forgot_password</item>-->
+<!--        <item name="android:textSize">@dimen/tv_text_size</item>-->
+<!--        <item name="android:textColor">@android:color/holo_orange_light</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_dont_have_an_account">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/dont_have_an_account_create_one_here</item>-->
+<!--        <item name="android:textSize">@dimen/dont_have_account_text_size</item>-->
+<!--        <item name="android:textColor">@android:color/holo_orange_light</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash;  Create Account Activity  &ndash;&gt;-->
+<!--    <style name="content_layout">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:orientation">vertical</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_firstname_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="startIconDrawable">@drawable/person</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/firstname</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="firstname_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPersonName</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_lastname_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="startIconDrawable">@drawable/person</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/lastname</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="lastname_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPersonName</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_username_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="startIconDrawable">@drawable/email</item>-->
+<!--        <item name="errorEnabled">true</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/username_email</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="username_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textEmailAddress</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_select_your_campus">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:text">@string/select_your_campus</item>-->
+<!--        <item name="android:textColor">@color/white</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:textSize">@dimen/campus_name_text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="switchPos">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/no_margin_top</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:text">@string/bloemfontein_campus</item>-->
+<!--        <item name="android:layoutDirection">rtl</item>-->
+<!--        <item name="android:textOff">@string/bloemfontein</item>-->
+<!--        <item name="android:textOn">@string/welkom</item>-->
+<!--        <item name="android:textSize">@dimen/campus_name_text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="FloatingHintStyle" parent="@android:style/TextAppearance">-->
+<!--        <item name= "android:textColor">@color/light_red</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_student_number_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="startIconDrawable">@drawable/card</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/student_number</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="student_number_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">number</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="counterEnabled">true</item>-->
+<!--        <item name="counterMaxLength">@dimen/counter_max</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_funding_type_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="startIconDrawable">@drawable/money</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/funding_type</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="funding_type_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPersonName</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_bursar_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="startIconDrawable">@drawable/bursar</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/bursar</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="bursar_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPersonName</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_enter_password_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="endIconMode">password_toggle</item>-->
+<!--        <item name="errorEnabled">true</item>-->
+<!--        <item name="startIconDrawable">@drawable/lock</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/enter_password</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="enter_password_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPassword</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="til_confirm_password_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_fullname_margin_start</item>-->
+<!--        <item name="endIconMode">password_toggle</item>-->
+<!--        <item name="errorEnabled">true</item>-->
+<!--        <item name="startIconDrawable">@drawable/lock</item>-->
+<!--        <item name="hintTextAppearance">@style/FloatingHintStyle</item>-->
+<!--        <item name="android:hint">@string/confirm_password</item>-->
+<!--        <item name="android:textColorHint">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="confirm_password_text_input_edit_text">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:inputType">textPassword</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--        <item name="android:editTextColor">#FFFFFF</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    <style name="button_create_account">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/button_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/button_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/til_margin_top</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/sign_up</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_already_have_an_account">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/already_have_an_account</item>-->
+<!--        <item name="android:textSize">@dimen/campus_name_text_size</item>-->
+<!--        <item name="android:textColor">@android:color/holo_orange_light</item>-->
+<!--    </style>-->
+
+<!--    <style name="iwResetPassword">-->
+<!--        <item name="android:layout_width">@dimen/tvProgressbar_margin_top</item>-->
+<!--        <item name="android:layout_height">@dimen/tvProgressbar_margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/buttons_margin_top</item>-->
+<!--        <item name="srcCompat">@drawable/reset_password</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_reset_password">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/you_will_be_sent_a_link</item>-->
+<!--        <item name="android:textSize">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--    </style>-->
+
+<!--    <style name="et_reset_password_email">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/buttons_margin_top</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:hint">@string/please_enter_your_email_address</item>-->
+<!--        <item name="android:inputType">textEmailAddress</item>-->
+<!--    </style>-->
+
+<!--    <style name="button_submit">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/button_margin_start</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/button_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/submit</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+<!--    <style name="greeting">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/buttons_margin_top</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/switch_margin_start</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/margin_top</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_greeting">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_weight">@dimen/greeting_weight</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/margin_top</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/margin_top</item>-->
+<!--        <item name="android:textColor">@color/navy_blue</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/hello</item>-->
+<!--        <item name="android:textSize">@dimen/tv_greeting</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_fullname">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:textColor">@android:color/holo_orange_light</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:textSize">@dimen/tv_greeting</item>-->
+<!--        <item name="android:fontFamily">@font/berkshire_swash</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_assistance">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">@color/navy_blue</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/how_can_we_be_of_your_assistance</item>-->
+<!--        <item name="android:textSize">@dimen/tv_greeting</item>-->
+<!--    </style>-->
+
+<!--    <style name="progress_bar_layout">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:orientation">vertical</item>-->
+<!--        <item name="android:visibility">gone</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/stufa_margin_top</item>-->
+<!--    </style>-->
+
+<!--    <style name="progress_bar_style">-->
+<!--        <item name="android:layout_width">@dimen/tvProgressbar_layout_weight</item>-->
+<!--        <item name="android:layout_height">@dimen/tvProgressbar_layout_weight</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tvProgressbar_margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/already_have_an_account</item>-->
+<!--        <item name="android:textSize">@dimen/tv_text_size</item>-->
+<!--        <item name="android:textColor">@color/white</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_create_query">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--        <item name="android:text">@string/create_a_query</item>-->
+<!--        <item name="android:textSize">@dimen/message_query_text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="btn_allowance_related">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/switch_padding</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/allowance_related_query</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+
+<!--    <style name="tv_book_allowances">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/book_allowance</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_meal_allowances">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/meal_allowance</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_accomodation_allowances">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/accommodation_or_transport_allowance</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="btn_booking_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/booking</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_booking_message_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/booking_message</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+
+<!--    <style name="btn_general_query_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/general_query</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_general_query_message">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/general_query_message</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_create_request">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--        <item name="android:text">@string/create_a_request</item>-->
+<!--        <item name="android:textSize">@dimen/message_query_text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="btn_financial_statement_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/financial_statement</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+<!--    <style name="tv_financil_statement_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--        <item name="android:text">@string/this_allows_statement</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+
+<!--    <style name="btn_financial_clearance_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/financial_clearance</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+
+<!--    <style name="tv_financil_clearance_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--        <item name="android:text">@string/this_allows_clearance</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
+
+<!--    <style name="btn_fill_form_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/message_text_size</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/margin_top</item>-->
+<!--        <item name="android:layout_gravity">center_horizontal</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:text">@string/fill_form</item>-->
+<!--        <item name="android:background">@drawable/buttons</item>-->
+<!--    </style>-->
+
+
+<!--    <style name="tv_fill_form_style">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:gravity">center_horizontal</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/tv_margin_top</item>-->
+<!--        <item name="android:textColor">#000000</item>-->
+<!--        <item name="android:textStyle">bold|italic</item>-->
+<!--        <item name="android:text">@string/this_allows_fill_form</item>-->
+<!--        <item name="android:textSize">@dimen/text_size</item>-->
+<!--    </style>-->
 
 
 </resources>
