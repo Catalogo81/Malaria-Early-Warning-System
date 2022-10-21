@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="etEmailAddress" type="id">etEmailAddress</item>
+    <item name="tvLogo" type="id">tvLogo</item>
+    <item name="etPassword" type="id">etPassword</item>
+    <item name="btnLogin" type="id">btnRegister</item>
+    <item name="btnRegister" type="id">btnRegister</item>
+    <item name="btnRestePassword" type="id">btnResetPassword</item>
+</resources>

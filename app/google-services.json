@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "304027739981",
+    "project_id": "malaria-early-warning-system",
+    "storage_bucket": "malaria-early-warning-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304027739981:android:081d7dd8f189989883b904",
+        "android_client_info": {
+          "package_name": "com.example.malariaearlywarningsystemmews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304027739981-7r4s5m9hregbbj2bjg5mju8j1h8isf48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAezQD0glpBCYvLqMTl4kiGVnrCt4JxzKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304027739981-7r4s5m9hregbbj2bjg5mju8j1h8isf48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
