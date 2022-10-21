@@ -14,11 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.R;
+import com.example.malariaearlywarningsystemmews.classes.User;
 import com.example.malariaearlywarningsystemmews.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
@@ -77,16 +79,19 @@ public class Register extends AppCompatActivity {
         if(TextUtils.isEmpty(name))
         {
             etRegisterName.setError("Name is Required");
+            etRegisterName.requestFocus();
             return;
         }
         else if(TextUtils.isEmpty(surname))
         {
             etRegisterSurname.setError("Surname is Required");
+            etRegisterSurname.requestFocus();
             return;
         }
         else if(TextUtils.isEmpty(email))
         {
             etRegisterEmailAddress.setError("Email address is Required");
+            etRegisterEmailAddress.requestFocus();
             return;
         }
         else if(TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword))
@@ -98,15 +103,18 @@ public class Register extends AppCompatActivity {
         else if(password.length() < 6)
         {
             etRegisterPassword.setError("Password has to be >= 6 Characters");
+            etRegisterPassword.requestFocus();
             return;
         }
         else if(password.equals(confirmPassword))
         {
             etRegisterConfirmPassword.setHint("Passwords match");
+            etRegisterConfirmPassword.requestFocus();
         }
         else
         {
             etRegisterConfirmPassword.setError("Passwords do not match");
+            etRegisterConfirmPassword.requestFocus();
         }
 
         progressBar.setVisibility(View.VISIBLE);
@@ -119,11 +127,33 @@ public class Register extends AppCompatActivity {
 
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(Register.this, "Successfully registered!", Toast.LENGTH_SHORT).show();
+                    //creating the User object and save to database
+                    User user = new User(name, surname, email);
 
-                    userID = mAuth.getCurrentUser().getUid();
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
 
-                    startActivity(new Intent(Register.this, Login.class));
+                            if(task.isSuccessful())
+                            {
+                                Toast.makeText(Register.this, "Successfully registered!", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.VISIBLE);
+                                //userID = mAuth.getCurrentUser().getUid();
+
+                                startActivity(new Intent(Register.this, Login.class));
+
+                            }
+                            else
+                            {
+                                Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
+
+                        }
+                    });
+
                 }
                 else
                 {
