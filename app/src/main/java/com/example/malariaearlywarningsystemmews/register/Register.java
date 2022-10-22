@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register extends AppCompatActivity {
 
     EditText etRegisterName, etRegisterSurname, etRegisterEmailAddress, etRegisterPassword,
-            etRegisterConfirmPassword;
+            etRegisterConfirmPassword, etRegisterPhoneNumber;
     Button btnRegisterDetails;
     TextView tvBackToLogin;
 
@@ -43,6 +43,7 @@ public class Register extends AppCompatActivity {
         etRegisterEmailAddress = findViewById(R.id.etRegisterEmailAddress);
         etRegisterPassword = findViewById(R.id.etRegisterPassword);
         etRegisterConfirmPassword = findViewById(R.id.etRegisterConfirmPassword);
+        etRegisterPhoneNumber = findViewById(R.id.etRegisterPhoneNumber);
         tvBackToLogin = findViewById(R.id.tvBackToLogin);
         btnRegisterDetails = findViewById(R.id.btnRegisterDetails);
 
@@ -72,6 +73,7 @@ public class Register extends AppCompatActivity {
         String name = etRegisterName.getText().toString().trim();
         String surname = etRegisterSurname.getText().toString().trim();
         String email = etRegisterEmailAddress.getText().toString().trim();
+        String phoneNumber = etRegisterPhoneNumber.getText().toString().trim();
         String password = etRegisterPassword.getText().toString().trim();
         String confirmPassword = etRegisterConfirmPassword.getText().toString().trim();
 
@@ -106,6 +108,12 @@ public class Register extends AppCompatActivity {
             etRegisterPassword.requestFocus();
             return;
         }
+        else if(phoneNumber.length() < 10)
+        {
+            etRegisterPhoneNumber.setError("Password has to be >= 10 Characters");
+            etRegisterPhoneNumber.requestFocus();
+            return;
+        }
         else if(password.equals(confirmPassword))
         {
             etRegisterConfirmPassword.setHint("Passwords match");
@@ -128,7 +136,7 @@ public class Register extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     //creating the User object and save to database
-                    User user = new User(name, surname, email);
+                    User user = new User(name, surname, email, phoneNumber);
 
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

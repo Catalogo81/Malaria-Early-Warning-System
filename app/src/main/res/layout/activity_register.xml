@@ -40,6 +40,17 @@
         android:inputType="textEmailAddress"
         android:hint="Email Address" />
 
+    <EditText
+        android:id="@+id/etRegisterPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="30dp"
+        android:inputType="phone"
+        android:hint="Phone Number" />
+
 
     <EditText
         android:id="@+id/etRegisterPassword"
