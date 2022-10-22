@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
 
@@ -80,11 +84,21 @@ public class Login extends AppCompatActivity {
             etEmailAddress.requestFocus();
             return;
         }
-        else if(TextUtils.isEmpty(password))
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            etEmailAddress.setError("Email pattern not valid");
+            etEmailAddress.requestFocus();
+        }
+        if(TextUtils.isEmpty(password))
         {
             etPassword.setError("Password is Required");
             etEmailAddress.requestFocus();
             return;
+        }
+        if(password.length() < 6)
+        {
+            etPassword.setError("Min password length is 6 characters");
+            etPassword.requestFocus();
         }
         else
         {
@@ -94,11 +108,26 @@ public class Login extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
                     if(task.isSuccessful())
                     {
+
                         Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Login.this, MainActivity.class));
+                        progressBar.setVisibility(View.GONE);
+
+//                        if(user.isEmailVerified())
+//                        {
+//                            Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(Login.this, MainActivity.class));
+//                        }
+//                        else
+//                        {
+//                            user.sendEmailVerification();
+//                            Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+//                            progressBar.setVisibility(View.GONE);
+//                        }
 
                     }
                     else
