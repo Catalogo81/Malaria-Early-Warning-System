@@ -20,6 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.classes.User;
+import com.example.malariaearlywarningsystemmews.extremeevents.Report_Extreme_Events;
+import com.example.malariaearlywarningsystemmews.extremeevents.View_Extreme_Events;
+import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
+import com.example.malariaearlywarningsystemmews.ikindicators.View_IK_Indicators;
 import com.example.malariaearlywarningsystemmews.login.Login;
 import com.example.malariaearlywarningsystemmews.register.Register;
 import com.google.android.material.navigation.NavigationView;
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         tvFullName = findViewById(R.id.tvFullName);
         tvEmail = findViewById(R.id.tvEmail);
-        btnLogout = findViewById(R.id.btnLogout);
+        //btnLogout = findViewById(R.id.btnLogout);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -79,82 +83,83 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                startActivity(new Intent(MainActivity.this, Login.class));
-
-            }
-        });
+//        btnLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mAuth.signOut();
+//                startActivity(new Intent(MainActivity.this, Login.class));
+//
+//            }
+//        });
 
         //get user details from firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
-//        userID = user.getUid();
+        userID = user.getUid();
+
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                //User object
+                User userProfile = snapshot.getValue(User.class);
+
+                //check if user profile exists
+                if(userProfile != null)
+                {
+                    String name = userProfile.getName();
+                    String surname = userProfile.getSurname();
+                    String email = userProfile.getEmail();
+                    String number = userProfile.getPhoneNumber();
+
+                    //set the details to the view
+                    tvFullName.setText("Welcome, " + name + " " + surname);
+                    tvEmail.setText("Logged in as: " + email);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        if(userID != null)
+//        {
+//            userID = user.getUid();
 //
-//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//            reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
 //
-//                //User object
-//                User userProfile = snapshot.getValue(User.class);
+//                    //User object
+//                    User userProfile = snapshot.getValue(User.class);
 //
-//                //check if user profile exists
-//                if(userProfile != null)
-//                {
-//                    String name = userProfile.getName();
-//                    String surname = userProfile.getSurname();
-//                    String email = userProfile.getEmail();
-//                    String number = userProfile.getPhoneNumber();
+//                    //check if user profile exists
+//                    if(userProfile != null)
+//                    {
+//                        String name = userProfile.getName();
+//                        String surname = userProfile.getSurname();
+//                        String email = userProfile.getEmail();
+//                        String number = userProfile.getPhoneNumber();
 //
-//                    //set the details to the view
-//                    tvFullName.setText("Welcome, " + name + " " + surname);
-//                    tvEmail.setText("Logged in as: " + email);
+//                        //set the details to the view
+//                        tvFullName.setText("Welcome, " + name + " " + surname);
+//                        tvEmail.setText("Logged in as: " + email);
+//                    }
 //                }
-//            }
 //
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
 //
-//                Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-        if(userID != null)
-        {
-            userID = user.getUid();
-
-            reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    //User object
-                    User userProfile = snapshot.getValue(User.class);
-
-                    //check if user profile exists
-                    if(userProfile != null)
-                    {
-                        String name = userProfile.getName();
-                        String surname = userProfile.getSurname();
-                        String email = userProfile.getEmail();
-                        String number = userProfile.getPhoneNumber();
-
-                        //set the details to the view
-                        tvFullName.setText("Welcome, " + name + " " + surname);
-                        tvEmail.setText("Logged in as: " + email);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                    Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+//                    Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//        }
 
     }
 
@@ -186,6 +191,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.nav_home:
+                break;
+
+            case R.id.nav_Extreme_Events:
+                startActivity(new Intent(getApplicationContext(), View_Extreme_Events.class));
+                break;
+
+            case R.id.nav_report_extreme_events:
+                startActivity(new Intent(getApplicationContext(), Report_Extreme_Events.class));
+                break;
+
+            case R.id.nav_ik_indicators:
+                startActivity(new Intent(getApplicationContext(), View_IK_Indicators.class));
+                break;
+
+            case R.id.nav_report_ik_indicator:
+                startActivity(new Intent(getApplicationContext(), Report_IK_Indicators.class));
+                break;
+
+            case R.id.nav_logout:
+                mAuth.signOut();
+                startActivity(new Intent(MainActivity.this, Login.class));
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MalariaEarlyWarningSystemMEWS">
+        <activity android:name=".extremeevents.View_Extreme_Events"></activity>
+        <activity android:name=".extremeevents.Report_Extreme_Events" />
+        <activity android:name=".ikindicators.View_IK_Indicators" />
+        <activity android:name=".ikindicators.Report_IK_Indicators" />
         <activity android:name=".resetpassword.ResetPassword" />
         <activity android:name=".register.Register" />
         <activity android:name=".login.Login" />

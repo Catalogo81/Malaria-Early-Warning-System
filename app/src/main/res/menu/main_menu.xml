@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_report_ik_indicator"
+            android:icon="@drawable/indicate"
+            android:title="Report IK Indicators" />
+        <item
+            android:id="@+id/nav_report_extreme_events"
+            android:icon="@drawable/extreme"
+            android:title="Report Extreme Events" />
+
+    </group>
+
+
+    <item android:title="History">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_ik_indicators"
+                    android:icon="@drawable/time"
+                    android:title="View IK Indicators"/>
+
+                <item
+                    android:id="@+id/nav_Extreme_Events"
+                    android:icon="@drawable/time"
+                    android:title="View Extreme Events"/>
+
+            </group>
+        </menu>
+
+    </item>
+
+    <item android:title="Other">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/lock_out"
+                    android:title="Logout"/>
+
+            </group>
+        </menu>
+
+    </item>
+
+
+</menu>
