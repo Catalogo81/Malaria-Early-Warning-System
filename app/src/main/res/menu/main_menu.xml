@@ -22,12 +22,12 @@
             <group android:checkableBehavior="single">
 
                 <item
-                    android:id="@+id/nav_ik_indicators"
+                    android:id="@+id/nav_view_ik_indicators"
                     android:icon="@drawable/time"
                     android:title="View IK Indicators"/>
 
                 <item
-                    android:id="@+id/nav_Extreme_Events"
+                    android:id="@+id/nav_view_extreme_events"
                     android:icon="@drawable/time"
                     android:title="View Extreme Events"/>
 

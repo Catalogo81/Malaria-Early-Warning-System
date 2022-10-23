@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "304027739981",
+    "firebase_url": "https://malaria-early-warning-system-default-rtdb.firebaseio.com",
     "project_id": "malaria-early-warning-system",
     "storage_bucket": "malaria-early-warning-system.appspot.com"
   },

@@ -12,5 +12,6 @@ public class View_Extreme_Events extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__extreme__events);
+
     }
 }

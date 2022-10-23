@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.malariaearlywarningsystemmews">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,14 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MalariaEarlyWarningSystemMEWS">
-        <activity android:name=".extremeevents.View_Extreme_Events"></activity>
+        <activity android:name=".login.FacebookSignIn"></activity>
+        <activity android:name=".login.GoogleSignIn" />
+        <activity android:name=".ikindicators.Select_IK_Indicator" />
+        <activity android:name=".extremeevents.View_Extreme_Events" />
         <activity android:name=".extremeevents.Report_Extreme_Events" />
         <activity android:name=".ikindicators.View_IK_Indicators" />
         <activity android:name=".ikindicators.Report_IK_Indicators" />
         <activity android:name=".resetpassword.ResetPassword" />
         <activity android:name=".register.Register" />
-        <activity android:name=".login.Login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

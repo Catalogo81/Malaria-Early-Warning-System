@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,9 +32,11 @@ public class Login extends AppCompatActivity {
     TextView tvLogo;
     EditText etEmailAddress, etPassword;
     Button btnLogin, btnRegister, btnResetPassword;
+    ImageView ivFacebook, ivGoogle;
 
     ProgressBar progressBar;
     FirebaseAuth mAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,18 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
         btnResetPassword = findViewById(R.id.btnResetPassword);
+        ivFacebook = findViewById(R.id.ivFacebook);
+        ivGoogle = findViewById(R.id.ivGoogle);
 
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+        //tests if there is a user is already active and email is verified
+        if(user != null /*&& firebaseUser.isEmailVerified()*/)
+        {
+            startActivity(new Intent(Login.this, MainActivity.class));
+        }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +79,24 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, ResetPassword.class));
+            }
+        });
+
+        ivFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Login.this, FacebookSignIn.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
+
+        ivGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Login.this, GoogleSignIn.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
             }
         });
     }

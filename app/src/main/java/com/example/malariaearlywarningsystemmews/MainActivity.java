@@ -23,6 +23,7 @@ import com.example.malariaearlywarningsystemmews.classes.User;
 import com.example.malariaearlywarningsystemmews.extremeevents.Report_Extreme_Events;
 import com.example.malariaearlywarningsystemmews.extremeevents.View_Extreme_Events;
 import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
+import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
 import com.example.malariaearlywarningsystemmews.ikindicators.View_IK_Indicators;
 import com.example.malariaearlywarningsystemmews.login.Login;
 import com.example.malariaearlywarningsystemmews.register.Register;
@@ -40,41 +41,55 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView tvFullName, tvEmail;
+    TextView tvFullName, tvEmail, tv_header_fullName, tv_header_email;
     Button btnLogout;
-
-    FirebaseAuth mAuth;
 
     //Navigation variables
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    View viewHeader;
     Toolbar toolbar;
 
+    FirebaseAuth mAuth;
+    FirebaseUser user;
+    DatabaseReference reference;
 
-    private FirebaseUser user;
-    private DatabaseReference reference;
-
-    private String userID;
+    String userID, location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         tvFullName = findViewById(R.id.tvFullName);
         tvEmail = findViewById(R.id.tvEmail);
-        //btnLogout = findViewById(R.id.btnLogout);
+
 
         mAuth = FirebaseAuth.getInstance();
+        //user = FirebaseAuth.getInstance().getCurrentUser();
+        user = mAuth.getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+
+        //get user details from firebase
+//        if(mAuth.getCurrentUser().getUid() != null) {
+//            userID = mAuth.getCurrentUser().getUid();
+//        }
+
+        //tests if there is a user is already active and email is verified
+//        if(user != null /*&& user.isEmailVerified()*/)
+//        {
+//            startActivity(new Intent(MainActivity.this, Home.class));
+//        }
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //getSupportActionBar().setTitle("MEWS");
+        getSupportActionBar().setTitle("Malaria Early Warning System");
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        viewHeader = navigationView.getHeaderView(0);
 
         /*--- Navigation Drawer Menu----*/
         navigationView.bringToFront();
@@ -85,18 +100,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
 
-//        btnLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mAuth.signOut();
-//                startActivity(new Intent(MainActivity.this, Login.class));
-//
-//            }
-//        });
+        tv_header_fullName = viewHeader.findViewById(R.id.tv_header_fullName);
+        tv_header_email = viewHeader.findViewById(R.id.tv_header_email);
 
         //get user details from firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
+
+        //Toast.makeText(MainActivity.this, "User ID: " + user.getEmail(), Toast.LENGTH_LONG).show();
 
         userID = user.getUid();
 
@@ -115,9 +126,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     String email = userProfile.getEmail();
                     String number = userProfile.getPhoneNumber();
 
-                    //set the details to the view
-                    tvFullName.setText("Welcome, " + name + " " + surname);
-                    tvEmail.setText("Logged in as: " + email);
+                    tv_header_fullName.setText(name + " " + surname);
+                    tv_header_email.setText(email);
                 }
             }
 
@@ -127,6 +137,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
 //        if(userID != null)
 //        {
@@ -197,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 break;
 
-            case R.id.nav_Extreme_Events:
+            case R.id.nav_view_extreme_events:
                 startActivity(new Intent(getApplicationContext(), View_Extreme_Events.class));
                 break;
 
@@ -205,17 +217,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(getApplicationContext(), Report_Extreme_Events.class));
                 break;
 
-            case R.id.nav_ik_indicators:
+            case R.id.nav_view_ik_indicators:
                 startActivity(new Intent(getApplicationContext(), View_IK_Indicators.class));
                 break;
 
             case R.id.nav_report_ik_indicator:
-                startActivity(new Intent(getApplicationContext(), Report_IK_Indicators.class));
+                startActivity(new Intent(getApplicationContext(), Select_IK_Indicator.class));
                 break;
 
             case R.id.nav_logout:
                 mAuth.signOut();
                 startActivity(new Intent(MainActivity.this, Login.class));
+                //startActivity(new Intent(MainActivity.this, Report_IK_Indicators.class));
                 break;
         }
 
