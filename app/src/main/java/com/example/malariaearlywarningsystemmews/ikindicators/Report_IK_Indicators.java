@@ -279,13 +279,6 @@ public class Report_IK_Indicators extends AppCompatActivity {
                     SimpleDateFormat format1 =new SimpleDateFormat("dd/MM/yyyy");
                     java.text.DateFormat format2=new SimpleDateFormat("MMMM");
 
-//                    Date dt1= null;
-//                    try {
-//                        dt1 = format1.parse(date);
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
-
                     /*checks if the image is successfully uploaded*/
                     image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
@@ -301,10 +294,10 @@ public class Report_IK_Indicators extends AppCompatActivity {
                     progressDialog.dismiss();
 
 
-//                    Indicators indicators = new Indicators(description, location /*taskSnapshot.getUploadSessionUri().toString()*/, currentDateString);
-//                    String imageUploadedId = databaseReference.push().getKey();
-//                    assert imageUploadedId != null;
-//                    databaseReference.child("CapturedReadings").child(imageUploadedId).setValue(capturedReading);
+                    Indicators indicators = new Indicators(description, location /*taskSnapshot.getUploadSessionUri().toString()*/, currentDateString);
+                    String imageUploadedId = databaseReference.push().getKey();
+                    assert imageUploadedId != null;
+                    databaseReference.child("Indicators").child(imageUploadedId).setValue(indicators);
                 }
             }).addOnFailureListener(e ->
                     Toast.makeText(Report_IK_Indicators.this, "Upload Failed", Toast.LENGTH_SHORT).show()
