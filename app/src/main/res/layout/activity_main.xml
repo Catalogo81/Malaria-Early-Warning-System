@@ -71,12 +71,36 @@
                     android:src="@drawable/logobackground2"/>
 
 <!--                <Button-->
-<!--                    android:id="@+id/btnLogout"-->
+<!--                    android:id="@+id/btnReportIndicator"-->
 <!--                    android:layout_width="wrap_content"-->
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:layout_gravity="center_horizontal"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:text="LOGOUT"/>-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:text="Report Indicators"/>-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/btnReportEvents"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:text="Report Events"/>-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/btnViewIndicators"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:text="View Indicators"/>-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/btnViewEvents"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:text="View Events"/>-->
 
             </LinearLayout>
 

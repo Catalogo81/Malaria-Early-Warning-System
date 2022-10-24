@@ -12,9 +12,12 @@ import android.location.Location;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,8 +40,11 @@ public class Report_Extreme_Events extends AppCompatActivity {
     EditText etEventDescription, etEventLocation;
     Button btnSubmitEvent;
     TextView tvLocation;
+    Spinner eventSpinner;
 
-    String myCountry, myLatitude, myLongitude;
+    List<String> items;
+
+    String myCountry, myLatitude, myLongitude, eventLevel;
 
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -51,6 +58,34 @@ public class Report_Extreme_Events extends AppCompatActivity {
         etEventLocation = findViewById(R.id.etEventLocation);
         btnSubmitEvent = findViewById(R.id.btnSubmitEvent);
         tvLocation = findViewById(R.id.tvLocation);
+        eventSpinner = findViewById(R.id.eventSpinner);
+
+        //ArrayAdapter<String> myAdapter = new ArrayAdapter<>(Report_Extreme_Events.this,
+                //android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.event_term));
+        //myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        //eventSpinner.setAdapter(myAdapter);
+
+        items = new ArrayList<>();
+
+        items.add("Moderate");
+        items.add("Severe");
+        items.add("Mild");
+
+        eventSpinner.setAdapter(new ArrayAdapter<>(Report_Extreme_Events.this,
+                R.layout.support_simple_spinner_dropdown_item, items));
+
+        eventSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                eventLevel = eventSpinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         //Initialize fusedLocationProviderClient
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);

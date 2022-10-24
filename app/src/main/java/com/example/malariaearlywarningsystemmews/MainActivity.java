@@ -42,7 +42,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView tvFullName, tvEmail, tv_header_fullName, tv_header_email;
-    Button btnLogout;
+    Button btnReportIndicator, btnReportEvents, btnViewIndicators, btnViewEvents;
 
     //Navigation variables
     DrawerLayout drawerLayout;
@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         tvFullName = findViewById(R.id.tvFullName);
         tvEmail = findViewById(R.id.tvEmail);
+
+        //for testing
+//        btnViewEvents = findViewById(R.id.btnViewEvents);
+//        btnViewIndicators = findViewById(R.id.btnViewIndicators);
+//        btnReportEvents = findViewById(R.id.btnReportEvents);
+//        btnReportIndicator = findViewById(R.id.btnReportIndicator);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -138,6 +144,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        //for testing
+//        btnViewEvents.setOnClickListener(view ->
+//                startActivity(new Intent(getApplicationContext(), View_Extreme_Events.class)));
+//
+//        btnReportEvents.setOnClickListener(view ->
+//                startActivity(new Intent(getApplicationContext(), Report_Extreme_Events.class)));
+//
+//        btnReportIndicator.setOnClickListener(view ->
+//                startActivity(new Intent(getApplicationContext(), Report_IK_Indicators.class)));
+//
+//        btnViewIndicators.setOnClickListener(view ->
+//                startActivity(new Intent(getApplicationContext(), View_IK_Indicators.class)));
 
 
 //        if(userID != null)
@@ -206,7 +224,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId())
         {
-            case R.id.nav_home:
+            case R.id.nav_select_ik_indicator:
+                startActivity(new Intent(MainActivity.this, Select_IK_Indicator.class));
                 break;
 
             case R.id.nav_view_extreme_events:
@@ -222,13 +241,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_report_ik_indicator:
-                startActivity(new Intent(getApplicationContext(), Select_IK_Indicator.class));
+
+                startActivity(new Intent(getApplicationContext(), Report_IK_Indicators.class));
                 break;
 
             case R.id.nav_logout:
                 mAuth.signOut();
                 startActivity(new Intent(MainActivity.this, Login.class));
-                //startActivity(new Intent(MainActivity.this, Report_IK_Indicators.class));
+               // startActivity(new Intent(MainActivity.this, Report_IK_Indicators.class));
                 break;
         }
 
