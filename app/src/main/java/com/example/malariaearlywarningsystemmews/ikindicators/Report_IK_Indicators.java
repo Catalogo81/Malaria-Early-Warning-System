@@ -113,6 +113,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
             public void onClick(View view) {
                 //Toast.makeText(Report_IK_Indicators.this, "Camera opening...", Toast.LENGTH_SHORT).show();
                 askCameraPermission();
+
             }
         });
 
