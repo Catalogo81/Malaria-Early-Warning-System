@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.malariaearlywarningsystemmews.R;
+import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
 import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -33,6 +34,7 @@ public class Adapter extends FirebaseRecyclerAdapter<Indicators, Adapter.ViewHol
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Indicators model) {
 
+        //setting the item in the rv
         holder.tvIndicator.setText(model.getIkDescription());
 
         holder.tvIndicator.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +43,12 @@ public class Adapter extends FirebaseRecyclerAdapter<Indicators, Adapter.ViewHol
                 //Toast.makeText(, "", Toast.LENGTH_SHORT).show();
                 //downloadFile(holder.tvReadingUnits.getContext(), ".pdf", DIRECTORY_DOWNLOADS, image);
                 //startActivity(new Intent(getApplicationContext(), Select_IK_Indicator.class));
+
+                //get the item clicked and pass it to the next activity with an intent
+                Intent ikIntent = new Intent(v.getContext(), Report_IK_Indicators.class);
+                ikIntent.putExtra("indicator", model.getIkDescription());
+                v.getContext().startActivity(ikIntent);
+
             }
         });
     }

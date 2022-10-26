@@ -145,4 +145,11 @@ public class Report_Extreme_Events extends AppCompatActivity {
         }
     }
 
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
+
 }

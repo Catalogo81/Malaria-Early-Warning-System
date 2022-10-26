@@ -14,4 +14,11 @@ public class View_Extreme_Events extends AppCompatActivity {
         setContentView(R.layout.activity_view__extreme__events);
 
     }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 }

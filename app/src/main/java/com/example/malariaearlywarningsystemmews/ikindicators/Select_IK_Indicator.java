@@ -45,4 +45,11 @@ public class Select_IK_Indicator extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 }

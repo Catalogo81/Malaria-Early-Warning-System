@@ -72,6 +72,16 @@
                 android:layout_marginTop="10dp"
                 android:padding="20dp">
 
+                <TextView
+                    android:id="@+id/tvIKIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
 
                 <EditText
                     android:id="@+id/etIndicatorDescription"

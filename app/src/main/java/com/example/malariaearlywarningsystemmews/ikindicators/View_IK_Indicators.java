@@ -13,4 +13,12 @@ public class View_IK_Indicators extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__i_k__indicators);
     }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
+
 }

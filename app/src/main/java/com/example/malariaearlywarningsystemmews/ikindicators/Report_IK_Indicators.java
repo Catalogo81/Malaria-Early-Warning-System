@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.R;
 import com.example.malariaearlywarningsystemmews.classes.Indicators;
+import com.example.malariaearlywarningsystemmews.classes.ObservedIndicators;
 import com.example.malariaearlywarningsystemmews.extremeevents.Report_Extreme_Events;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -66,6 +67,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
     ImageView ivIndicatorImage, ivIndicatorImageFromGallery;
     EditText etIndicatorDescription, etIndicatorLocation;
     Button btnSubmitIndicator;
+    TextView tvIKIndicator;
 
     StorageReference storageReference;
     DatabaseReference databaseReference;
@@ -75,7 +77,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
     String myCountry, myLatitude, myLongitude, currentPhotoPath,
-            userID, date, location, description, indicatorImage;
+            userID, indicator, date, location, description, indicatorImage;
 
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -95,6 +97,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         etIndicatorDescription = findViewById(R.id.etIndicatorDescription);
         etIndicatorLocation = findViewById(R.id.etIndicatorLocation);
         btnSubmitIndicator = findViewById(R.id.btnSubmitIndicator);
+        tvIKIndicator = findViewById(R.id.tvIKIndicator);
 
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -103,6 +106,13 @@ public class Report_IK_Indicators extends AppCompatActivity {
         userID = firebaseAuth.getCurrentUser().getUid();
 
         progressDialog = new ProgressDialog(this);
+
+        //get the text clicked from the Select_Indicator activity
+        tvIKIndicator.setText(getIntent().getExtras().getString("indicator"));
+
+        //set the indicator variable
+        if(!tvIKIndicator.getText().toString().isEmpty())
+            indicator = tvIKIndicator.getText().toString();
 
         //Initialize fusedLocationProviderClient
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -127,12 +137,15 @@ public class Report_IK_Indicators extends AppCompatActivity {
             }
         });
 
-        btnSubmitIndicator.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        btnSubmitIndicator.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(Report_IK_Indicators.this, "Submit clicked", Toast.LENGTH_SHORT).show();
+//                //uploadImageToFirebase();
+//
+//            }
+//        });
     }
 
     private void askCameraPermission() {
@@ -295,10 +308,10 @@ public class Report_IK_Indicators extends AppCompatActivity {
                     progressDialog.dismiss();
 
 
-                    Indicators indicators = new Indicators(description, location /*taskSnapshot.getUploadSessionUri().toString()*/, currentDateString);
+                    ObservedIndicators observedIndicators = new ObservedIndicators(userID, indicator, location /*taskSnapshot.getUploadSessionUri().toString()*/,description, indicatorImage, currentDateString);
                     String imageUploadedId = databaseReference.push().getKey();
                     assert imageUploadedId != null;
-                    databaseReference.child("Indicators").child(imageUploadedId).setValue(indicators);
+                    databaseReference.child("ObservedIndicators").child(imageUploadedId).setValue(observedIndicators);
                 }
             }).addOnFailureListener(e ->
                     Toast.makeText(Report_IK_Indicators.this, "Upload Failed", Toast.LENGTH_SHORT).show()
@@ -415,6 +428,13 @@ public class Report_IK_Indicators extends AppCompatActivity {
             ActivityCompat.requestPermissions(Report_IK_Indicators.this
                     , new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
+    }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 
 }

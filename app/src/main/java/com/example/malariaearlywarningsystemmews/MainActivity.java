@@ -224,9 +224,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId())
         {
-            case R.id.nav_select_ik_indicator:
-                startActivity(new Intent(MainActivity.this, Select_IK_Indicator.class));
-                break;
+//            case R.id.nav_select_ik_indicator:
+//                startActivity(new Intent(MainActivity.this, Select_IK_Indicator.class));
+//                break;
 
             case R.id.nav_view_extreme_events:
                 startActivity(new Intent(getApplicationContext(), View_Extreme_Events.class));
@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_report_ik_indicator:
 
-                startActivity(new Intent(getApplicationContext(), Report_IK_Indicators.class));
+                startActivity(new Intent(getApplicationContext(), Select_IK_Indicator.class));
                 break;
 
             case R.id.nav_logout:
