@@ -43,11 +43,21 @@
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/camera" />
 
+                <ImageView
+                    android:id="@+id/ivEventImageFromGallery"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="-10dp"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/file" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:background="@drawable/login_background"
+                    android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:padding="20dp">

@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.malariaearlywarningsystemmews.MainActivity;
 import com.example.malariaearlywarningsystemmews.R;
 import com.example.malariaearlywarningsystemmews.classes.Adapter;
 import com.example.malariaearlywarningsystemmews.classes.Indicators;
@@ -49,6 +51,7 @@ public class Select_IK_Indicator extends AppCompatActivity {
     //closes the activity when the user presses the phone 'back' button
     @Override
     public void onBackPressed() {
+        startActivity(new Intent(Select_IK_Indicator.this, MainActivity.class));
         finish();
         super.onBackPressed();
     }

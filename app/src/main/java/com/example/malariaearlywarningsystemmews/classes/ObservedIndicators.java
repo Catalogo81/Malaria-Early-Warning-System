@@ -10,17 +10,21 @@ public class ObservedIndicators {
     String description;
     String image;
     String dateCaptured;
+    String status;
+    String email;
 
     public ObservedIndicators() {
     }
 
-    public ObservedIndicators(String id, String indicator, String location, String description, String image, String dateCaptured) {
+    public ObservedIndicators(String id, String indicator, String location, String description, String image, String dateCaptured, String status, String email) {
         this.id = id;
         this.indicator = indicator;
         this.location = location;
         this.description = description;
         this.image = image;
         this.dateCaptured = dateCaptured;
+        this.status = status;
+        this.email = email;
     }
 
     public String getId() {
@@ -69,5 +73,21 @@ public class ObservedIndicators {
 
     public void setDateCaptured(String dateCaptured) {
         this.dateCaptured = dateCaptured;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

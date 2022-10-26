@@ -77,7 +77,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
     String myCountry, myLatitude, myLongitude, currentPhotoPath,
-            userID, indicator, date, location, description, indicatorImage;
+            userID, userEmail, indicator, date, location, description, indicatorImage;
 
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -104,6 +104,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         userID = firebaseAuth.getCurrentUser().getUid();
+        userEmail = firebaseAuth.getCurrentUser().getEmail();
 
         progressDialog = new ProgressDialog(this);
 
@@ -289,6 +290,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
                     description = etIndicatorDescription.getText().toString().trim();
                     indicatorImage = image.getDownloadUrl().toString();
                     location = etIndicatorLocation.getText().toString().trim();
+                    String status = "pending";
 
                     SimpleDateFormat format1 =new SimpleDateFormat("dd/MM/yyyy");
                     java.text.DateFormat format2=new SimpleDateFormat("MMMM");
@@ -308,7 +310,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
                     progressDialog.dismiss();
 
 
-                    ObservedIndicators observedIndicators = new ObservedIndicators(userID, indicator, location /*taskSnapshot.getUploadSessionUri().toString()*/,description, indicatorImage, currentDateString);
+                    ObservedIndicators observedIndicators = new ObservedIndicators(userID, indicator, location,description, indicatorImage, currentDateString, status, userEmail);
                     String imageUploadedId = databaseReference.push().getKey();
                     assert imageUploadedId != null;
                     databaseReference.child("ObservedIndicators").child(imageUploadedId).setValue(observedIndicators);
@@ -433,6 +435,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
     //closes the activity when the user presses the phone 'back' button
     @Override
     public void onBackPressed() {
+        startActivity(new Intent(Report_IK_Indicators.this, Select_IK_Indicator.class));
         finish();
         super.onBackPressed();
     }

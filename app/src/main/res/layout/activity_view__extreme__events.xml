@@ -17,4 +17,10 @@
         android:textColor="@color/dark_grey"
         android:gravity="center_horizontal"/>
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvObservedExtremeEvents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>
