@@ -122,7 +122,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         ivIndicatorImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(Report_IK_Indicators.this, "Camera opening...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Report_IK_Indicators.this, "Camera opening...", Toast.LENGTH_SHORT).show();
                 askCameraPermission();
 
             }
@@ -158,6 +158,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         {
             /*-----Opens our camera-----*/
             //openCamera();
+            Toast.makeText(this, "Permissions Granted on askCameraPermission()", Toast.LENGTH_SHORT).show();
             dispatchTakePictureIntent();
         }
 
@@ -364,6 +365,8 @@ public class Report_IK_Indicators extends AppCompatActivity {
         //Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //startActivityForResult(camera, CAMERA_REQUEST_CODE);
 
+        //Toast.makeText(this, "dispatchTakePictureIntent() Method entered", Toast.LENGTH_LONG).show();
+
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -378,7 +381,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
+                        "com.example.android.fileprovider,",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);

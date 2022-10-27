@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.MainActivity;
 import com.example.malariaearlywarningsystemmews.R;
+import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
+import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
 import com.example.malariaearlywarningsystemmews.register.Register;
 import com.example.malariaearlywarningsystemmews.resetpassword.ResetPassword;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,7 +58,7 @@ public class Login extends AppCompatActivity {
         user = mAuth.getCurrentUser();
 
         //tests if there is a user is already active and email is verified
-        if(user != null /*&& firebaseUser.isEmailVerified()*/)
+        if(user != null && user.isEmailVerified())
         {
             startActivity(new Intent(Login.this, MainActivity.class));
         }
@@ -143,21 +145,23 @@ public class Login extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
 
-                        Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Login.this, MainActivity.class));
-                        progressBar.setVisibility(View.GONE);
+//                        Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(Login.this, MainActivity.class));
+//                        progressBar.setVisibility(View.GONE);
 
-//                        if(user.isEmailVerified())
-//                        {
-//                            Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(Login.this, MainActivity.class));
-//                        }
-//                        else
-//                        {
-//                            user.sendEmailVerification();
-//                            Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
-//                            progressBar.setVisibility(View.GONE);
-//                        }
+                        if(user.isEmailVerified())
+                        {
+                            Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Login.this, MainActivity.class));
+                            progressBar.setVisibility(View.GONE);
+                        }
+                        else
+                        {
+                            user.sendEmailVerification();
+                            clearUserData();
+                            Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
 
                     }
                     else
@@ -169,5 +173,19 @@ public class Login extends AppCompatActivity {
             });
         }
 
+    }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
+
+    private void clearUserData() {
+
+        //clearing text
+        etPassword.setText("");
+        etEmailAddress.setText("");
     }
 }

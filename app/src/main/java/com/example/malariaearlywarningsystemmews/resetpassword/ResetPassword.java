@@ -3,6 +3,7 @@ package com.example.malariaearlywarningsystemmews.resetpassword;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.R;
+import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
+import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
+import com.example.malariaearlywarningsystemmews.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -82,5 +86,13 @@ public class ResetPassword extends AppCompatActivity {
 
             }
         });
+    }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ResetPassword.this, Login.class));
+        finish();
+        super.onBackPressed();
     }
 }

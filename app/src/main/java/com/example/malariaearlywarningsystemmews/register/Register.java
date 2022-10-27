@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.R;
 import com.example.malariaearlywarningsystemmews.classes.User;
+import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
+import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
 import com.example.malariaearlywarningsystemmews.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -171,5 +173,13 @@ public class Register extends AppCompatActivity {
 
             }
         });
+    }
+
+    //closes the activity when the user presses the phone 'back' button
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Register.this, Login.class));
+        finish();
+        super.onBackPressed();
     }
 }
