@@ -1,6 +1,7 @@
 package com.example.malariaearlywarningsystemmews.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,15 @@ public class ExtremeEventsAdapter extends RecyclerView.Adapter<ExtremeEventsAdap
 
         holder.eventDescription.setText(observedExtremeEvents.getEventDescription());
         holder.eventDateReported.setText(observedExtremeEvents.getEventDate());
-        holder.eventLevel.setText(observedExtremeEvents.getEventLevel());
         holder.eventReportedBy.setText(observedExtremeEvents.getEventUserEmail());
+
+        holder.eventLevel.setText(observedExtremeEvents.getEventLevel());
+        if(holder.eventLevel.getText().toString().equals("Moderate"))
+            holder.eventLevel.setTextColor(Color.parseColor("#398703"));
+        else if(holder.eventLevel.getText().toString().equals("Mild"))
+            holder.eventLevel.setTextColor(Color.parseColor("#FF8F00"));
+        else if(holder.eventLevel.getText().toString().equals("Severe"))
+            holder.eventLevel.setTextColor(Color.parseColor("#EF1111"));
 
     }
 

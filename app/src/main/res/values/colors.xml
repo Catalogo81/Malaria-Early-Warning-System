@@ -9,8 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#979292</color>
     <color name="dark_grey">#B44C4848</color>
+    <color name="ligt_grey">#E3DFDF</color>
     <color name="light_green">#BE7FC54F</color>
     <color name="app_primary_colour_navy_blue">#2A3A63</color>
     <color name="app_primary_colour_dark_blue">#111C39</color>
     <color name="app_primary_colour_light_blue">#0F79B8</color>
+    <color name="green">#398703</color>
+    <color name="orange">#FF8F00</color>
+    <color name="red">#EF1111</color>
 </resources>

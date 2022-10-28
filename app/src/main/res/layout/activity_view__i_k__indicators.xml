@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/backgroundapppicture"
     tools:context=".ikindicators.View_IK_Indicators">
 
     <TextView
@@ -15,7 +15,7 @@
         android:text="View IK Indicators"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/app_primary_colour_dark_blue"
         android:gravity="center_horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView

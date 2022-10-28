@@ -8,7 +8,7 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="10dp"
     android:layout_marginBottom="10dp"
-    android:background="@color/dark_grey"
+    android:background="@color/app_primary_colour_dark_blue"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp"
     app:cardUseCompatPadding="false">
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:background="@color/dark_grey"
+        android:background="@color/app_primary_colour_dark_blue"
         android:gravity="center_horizontal">
 
         <TextView

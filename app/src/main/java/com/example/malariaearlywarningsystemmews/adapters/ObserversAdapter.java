@@ -1,6 +1,7 @@
 package com.example.malariaearlywarningsystemmews.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,9 @@ public class ObserversAdapter extends RecyclerView.Adapter<ObserversAdapter.MyVi
         holder.observerDescription.setText(observedIndicators.getDescription());
         holder.date.setText(observedIndicators.getDateCaptured());
         holder.observerStatus.setText(observedIndicators.getStatus());
+
+        if(holder.observerStatus.getText().toString().equals("pending"))
+            holder.observerStatus.setTextColor(Color.parseColor("#FF8F00"));
     }
 
     @Override

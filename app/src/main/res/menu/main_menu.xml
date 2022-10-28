@@ -12,11 +12,6 @@
             android:icon="@drawable/extreme"
             android:title="Report Extreme Events" />
 
-<!--        <item-->
-<!--            android:id="@+id/nav_select_ik_indicator"-->
-<!--            android:icon="@drawable/iklist"-->
-<!--            android:title="Select IK Indicators" />-->
-
     </group>
 
 
