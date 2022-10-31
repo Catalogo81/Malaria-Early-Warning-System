@@ -315,6 +315,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
                     String imageUploadedId = databaseReference.push().getKey();
                     assert imageUploadedId != null;
                     databaseReference.child("ObservedIndicators").child(imageUploadedId).setValue(observedIndicators);
+                    clearData();
                 }
             }).addOnFailureListener(e ->
                     Toast.makeText(Report_IK_Indicators.this, "Upload Failed", Toast.LENGTH_SHORT).show()
@@ -328,6 +329,14 @@ public class Report_IK_Indicators extends AppCompatActivity {
             });*/
         }
 
+    }
+
+    //clears the data once user successfully reports an indicator
+    private void clearData()
+    {
+        etIndicatorLocation.setText("");
+        etIndicatorDescription.setText("");
+        //ivIndicatorImageFromGallery.setImageBitmap(null);
     }
 
     private String getFileExt(Uri contentUri)
@@ -442,5 +451,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         finish();
         super.onBackPressed();
     }
+
+
 
 }

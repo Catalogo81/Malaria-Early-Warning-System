@@ -4,24 +4,31 @@ import android.media.Image;
 
 import java.util.Date;
 
-public class Indicators
+public abstract class Indicators
 {
     private String ikDescription;
     //private Image ikImage;
     private String ikLocation;
     //private Date ikDate;
     private String ikDate;
+    private String ikSeason;
+    private String ikSignificance;
+    private String ikRank;
 
     public Indicators(){}
 
     //public Indicators(String ikDescription) {
 //        this.ikDescription = ikDescription;
 //    }
-        public Indicators(String ikDescription/*, Image ikImage*/, String ikLocation, String ikDate) {
+        public Indicators(String ikDescription/*, Image ikImage*/, String ikLocation, String ikDate,
+        String ikSeason, String ikSignificance, String ikRank) {
         this.ikDescription = ikDescription;
         //this.ikImage = ikImage;
         this.ikLocation = ikLocation;
         this.ikDate = ikDate;
+        this.ikSeason = ikSeason;
+        this.ikSignificance = ikSignificance;
+        this.ikRank = ikRank;
     }
 
     public String getIkDescription() {
@@ -63,5 +70,29 @@ public class Indicators
 
     public void setIkDate(String ikDate) {
         this.ikDate = ikDate;
+    }
+
+    public String getIkSeason() {
+        return ikSeason;
+    }
+
+    public void setIkSeason(String ikSeason) {
+        this.ikSeason = ikSeason;
+    }
+
+    public String getIkSignificance() {
+        return ikSignificance;
+    }
+
+    public void setIkSignificance(String ikSignificance) {
+        this.ikSignificance = ikSignificance;
+    }
+
+    public String getIkRank() {
+        return ikRank;
+    }
+
+    public void setIkRank(String ikRank) {
+        this.ikRank = ikRank;
     }
 }

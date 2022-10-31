@@ -141,6 +141,8 @@ public class Report_Extreme_Events extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                askCameraPermission();
+
             }
         });
 
@@ -322,6 +324,7 @@ public class Report_Extreme_Events extends AppCompatActivity {
                     String imageUploadedId = databaseReference.push().getKey();
                     assert imageUploadedId != null;
                     databaseReference.child("ObservedExtremeEvents").child(imageUploadedId).setValue(observedExtremeEvents);
+                    clearData();
                 }
             }).addOnFailureListener(e ->
                     Toast.makeText(Report_Extreme_Events.this, "Upload Failed", Toast.LENGTH_SHORT).show()
@@ -335,6 +338,14 @@ public class Report_Extreme_Events extends AppCompatActivity {
             });*/
         }
 
+    }
+
+    //clears the data once user successfully reports an indicator
+    private void clearData()
+    {
+        etEventDescription.setText("");
+        etEventLocation.setText("");
+        //ivIndicatorImageFromGallery.setImageBitmap(null);
     }
 
 

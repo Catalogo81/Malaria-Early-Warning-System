@@ -27,7 +27,7 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="19sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -36,6 +36,6 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:layout_marginTop="4dp"
-        android:textSize="19sp"
+        android:textSize="18sp"
         android:text="@string/nav_header_subtitle" />
 </LinearLayout>

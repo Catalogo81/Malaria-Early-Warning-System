@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView tvFullName, tvEmail, tv_header_fullName, tv_header_email;
-    Button btnReportIndicator, btnReportEvents, btnViewIndicators, btnViewEvents;
+    Button btnWebLink;
 
     //Navigation variables
     DrawerLayout drawerLayout;
@@ -64,29 +65,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         tvFullName = findViewById(R.id.tvFullName);
         tvEmail = findViewById(R.id.tvEmail);
-
-        //for testing
-//        btnViewEvents = findViewById(R.id.btnViewEvents);
-//        btnViewIndicators = findViewById(R.id.btnViewIndicators);
-//        btnReportEvents = findViewById(R.id.btnReportEvents);
-//        btnReportIndicator = findViewById(R.id.btnReportIndicator);
+        btnWebLink = findViewById(R.id.btnWebLink);
 
 
         mAuth = FirebaseAuth.getInstance();
         //user = FirebaseAuth.getInstance().getCurrentUser();
         user = mAuth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
-
-        //get user details from firebase
-//        if(mAuth.getCurrentUser().getUid() != null) {
-//            userID = mAuth.getCurrentUser().getUid();
-//        }
-
-        //tests if there is a user is already active and email is verified
-//        if(user != null /*&& user.isEmailVerified()*/)
-//        {
-//            startActivity(new Intent(MainActivity.this, Home.class));
-//        }
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -144,52 +129,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        //for testing
-//        btnViewEvents.setOnClickListener(view ->
-//                startActivity(new Intent(getApplicationContext(), View_Extreme_Events.class)));
-//
-//        btnReportEvents.setOnClickListener(view ->
-//                startActivity(new Intent(getApplicationContext(), Report_Extreme_Events.class)));
-//
-//        btnReportIndicator.setOnClickListener(view ->
-//                startActivity(new Intent(getApplicationContext(), Report_IK_Indicators.class)));
-//
-//        btnViewIndicators.setOnClickListener(view ->
-//                startActivity(new Intent(getApplicationContext(), View_IK_Indicators.class)));
-
-
-//        if(userID != null)
-//        {
-//            userID = user.getUid();
-//
-//            reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                    //User object
-//                    User userProfile = snapshot.getValue(User.class);
-//
-//                    //check if user profile exists
-//                    if(userProfile != null)
-//                    {
-//                        String name = userProfile.getName();
-//                        String surname = userProfile.getSurname();
-//                        String email = userProfile.getEmail();
-//                        String number = userProfile.getPhoneNumber();
-//
-//                        //set the details to the view
-//                        tvFullName.setText("Welcome, " + name + " " + surname);
-//                        tvEmail.setText("Logged in as: " + email);
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
+        btnWebLink.setOnClickListener(view -> {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse("https://interimdigitalsolutions.co.za/CUTReseach/"));
+            startActivity(intent);
+        });
 
     }
 

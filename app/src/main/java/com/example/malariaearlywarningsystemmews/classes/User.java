@@ -2,16 +2,17 @@ package com.example.malariaearlywarningsystemmews.classes;
 
 public class User {
 
-    private String name, surname, email, phoneNumber;
+    private String name, surname, email, phoneNumber, role;
 
     public User(){}
 
-    public User(String name, String surname, String email, String phoneNumber)
+    public User(String name, String surname, String email, String phoneNumber, String role)
     {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.role = role;
     }
 
     public String getName() {
@@ -44,5 +45,13 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

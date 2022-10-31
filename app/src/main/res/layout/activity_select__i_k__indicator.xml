@@ -18,6 +18,96 @@
         android:textColor="@color/app_primary_colour_dark_blue"
         android:gravity="center_horizontal"/>
 
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="5dp"-->
+<!--        android:gravity="center_horizontal">-->
+
+<!--        <RadioGroup-->
+<!--            android:id="@+id/radioGroup"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbSummer"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Summer"-->
+<!--                android:onClick="checkButton"-->
+<!--                android:checked="true"/>-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbWinter"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:onClick="checkButton"-->
+<!--                android:text="Winter"/>-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbAutumn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:onClick="checkButton"-->
+<!--                android:text="Autumn"/>-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbSpring"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:onClick="checkButton"-->
+<!--                android:text="Spring"/>-->
+
+<!--        </RadioGroup>-->
+
+
+
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:gravity="center_horizontal">
+
+            <CheckBox
+                android:id="@+id/cbSummer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Summer"/>
+
+            <CheckBox
+                android:id="@+id/cbWinter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Winter"/>
+
+            <CheckBox
+                android:id="@+id/cbAutumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autumn"/>
+
+            <CheckBox
+                android:id="@+id/cbSpring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spring"/>
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnShowChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvIndicators"
         android:layout_width="match_parent"
