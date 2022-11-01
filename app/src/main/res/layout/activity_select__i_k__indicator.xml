@@ -18,6 +18,15 @@
         android:textColor="@color/app_primary_colour_dark_blue"
         android:gravity="center_horizontal"/>
 
+<!--    <Button-->
+<!--        android:id="@+id/btnSummerIndicators"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:text="Summer"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@color/white"/>-->
+
 <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
@@ -66,55 +75,141 @@
 
 <!--    </LinearLayout>-->
 
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="5dp"-->
+<!--        android:gravity="center_horizontal">-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/cbSummer"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Summer"/>-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/cbWinter"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Winter"/>-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/cbAutumn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Autumn"/>-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/cbSpring"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Spring"/>-->
+
+
+
+<!--    </LinearLayout>-->
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:gravity="center_horizontal">
-
-            <CheckBox
-                android:id="@+id/cbSummer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Summer"/>
-
-            <CheckBox
-                android:id="@+id/cbWinter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Winter"/>
-
-            <CheckBox
-                android:id="@+id/cbAutumn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Autumn"/>
-
-            <CheckBox
-                android:id="@+id/cbSpring"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Spring"/>
-
-
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnShowChecked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal">
 
+        <Spinner
+            android:id="@+id/spinnerSeasons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:tooltipText="Select Season"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvIndicators"
+        <Button
+            android:id="@+id/btnShowChecked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Filter Indicators by Season"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+<!--    <Button-->
+<!--        android:id="@+id/btnShowChecked"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:text="Filter Indicators by Season"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textStyle="bold"/>-->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:paddingTop="10dp"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvIndicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:paddingTop="10dp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSummerIndicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:paddingTop="10dp"
+                android:visibility="visible"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWinterIndicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:paddingTop="10dp"
+                android:visibility="visible"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSpringIndicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:paddingTop="10dp"
+                android:visibility="visible"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAutumnIndicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:paddingTop="10dp"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

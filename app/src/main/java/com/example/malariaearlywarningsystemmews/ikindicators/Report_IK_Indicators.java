@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.malariaearlywarningsystemmews.MainActivity;
 import com.example.malariaearlywarningsystemmews.R;
 import com.example.malariaearlywarningsystemmews.classes.Indicators;
 import com.example.malariaearlywarningsystemmews.classes.ObservedIndicators;
@@ -66,7 +67,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
 
     ImageView ivIndicatorImage, ivIndicatorImageFromGallery;
     EditText etIndicatorDescription, etIndicatorLocation;
-    Button btnSubmitIndicator;
+    Button btnSubmitIndicator, btnCamera, btnGallery;
     TextView tvIKIndicator;
 
     StorageReference storageReference;
@@ -97,6 +98,8 @@ public class Report_IK_Indicators extends AppCompatActivity {
         etIndicatorDescription = findViewById(R.id.etIndicatorDescription);
         etIndicatorLocation = findViewById(R.id.etIndicatorLocation);
         btnSubmitIndicator = findViewById(R.id.btnSubmitIndicator);
+        btnCamera = findViewById(R.id.btnCamera);
+        btnGallery = findViewById(R.id.btnGallery);
         tvIKIndicator = findViewById(R.id.tvIKIndicator);
 
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -119,24 +122,35 @@ public class Report_IK_Indicators extends AppCompatActivity {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         getCurrentLocation();
 
-        ivIndicatorImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Report_IK_Indicators.this, "Camera opening...", Toast.LENGTH_SHORT).show();
-                askCameraPermission();
+//        ivIndicatorImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(Report_IK_Indicators.this, "Camera opening...", Toast.LENGTH_SHORT).show();
+//                askCameraPermission();
+//
+//            }
+//        });
 
-            }
+        btnCamera.setOnClickListener(view -> {
+            askCameraPermission();
         });
 
-        ivIndicatorImageFromGallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Report_IK_Indicators.this, "Gallery opening...", Toast.LENGTH_SHORT).show();
+        btnGallery.setOnClickListener(view -> {
+            Toast.makeText(Report_IK_Indicators.this, "Gallery opening...", Toast.LENGTH_SHORT).show();
 
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, GALLERY_REQUEST_CODE);
-            }
+            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(gallery, GALLERY_REQUEST_CODE);
         });
+
+//        ivIndicatorImageFromGallery.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(Report_IK_Indicators.this, "Gallery opening...", Toast.LENGTH_SHORT).show();
+//
+//                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                startActivityForResult(gallery, GALLERY_REQUEST_CODE);
+//            }
+//        });
 
 //        btnSubmitIndicator.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -447,7 +461,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
     //closes the activity when the user presses the phone 'back' button
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Report_IK_Indicators.this, Select_IK_Indicator.class));
+        startActivity(new Intent(Report_IK_Indicators.this, MainActivity.class));
         finish();
         super.onBackPressed();
     }
