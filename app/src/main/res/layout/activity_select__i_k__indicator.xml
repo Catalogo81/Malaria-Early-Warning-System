@@ -110,35 +110,35 @@
 
 <!--    </LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:padding="5dp"
-        android:layout_gravity="center_horizontal">
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:padding="5dp"-->
+<!--        android:layout_gravity="center_horizontal">-->
 
-        <Spinner
-            android:id="@+id/spinnerSeasons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:tooltipText="Select Season"/>
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerSeasons"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:tooltipText="Select Season"/>-->
 
-        <Button
-            android:id="@+id/btnShowChecked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Filter Indicators by Season"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+<!--        <Button-->
+<!--            android:id="@+id/btnShowChecked"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:text="Filter Indicators by Season"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textStyle="bold"/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 <!--    <Button-->
 <!--        android:id="@+id/btnShowChecked"-->
 <!--        android:layout_width="wrap_content"-->
@@ -168,6 +168,30 @@
                 android:paddingTop="10dp"
                 android:visibility="gone"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Summer Indicators:"
+                android:textColor="@color/app_primary_colour_light_blue"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:background="@color/app_primary_colour_dark_blue"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSummerIndicators"
                 android:layout_width="match_parent"
@@ -178,15 +202,64 @@
                 android:paddingTop="10dp"
                 android:visibility="visible"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Winter Indicators:"
+                android:textColor="@color/app_primary_colour_light_blue"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:background="@color/app_primary_colour_dark_blue"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvWinterIndicators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:visibility="visible"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Spring Indicators:"
+                android:textColor="@color/app_primary_colour_light_blue"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:background="@color/app_primary_colour_dark_blue"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSpringIndicators"
@@ -198,6 +271,30 @@
                 android:paddingTop="10dp"
                 android:visibility="visible"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Autumn Indicators:"
+                android:textColor="@color/app_primary_colour_light_blue"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:background="@color/app_primary_colour_dark_blue"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAutumnIndicators"
                 android:layout_width="match_parent"
@@ -207,6 +304,7 @@
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:visibility="visible"/>
+
 
         </LinearLayout>
 

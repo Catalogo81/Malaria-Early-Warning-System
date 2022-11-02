@@ -58,8 +58,8 @@ public class Select_IK_Indicator extends AppCompatActivity {
 //        cbWinter = findViewById(R.id.cbWinter);
 //        cbSpring = findViewById(R.id.cbSpring);
 //        cbAutumn = findViewById(R.id.cbAutumn);
-        btnShowChecked = findViewById(R.id.btnShowChecked);
-        spinnerSeasons = findViewById(R.id.spinnerSeasons);
+//        btnShowChecked = findViewById(R.id.btnShowChecked);
+//        spinnerSeasons = findViewById(R.id.spinnerSeasons);
         //btnSummerIndicators = findViewById(R.id.btnSummerIndicators);
 
         recyclerView = findViewById(R.id.rvIndicators);
@@ -74,28 +74,28 @@ public class Select_IK_Indicator extends AppCompatActivity {
         autumnRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         springRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mySeasons = new ArrayList<>();
-
-        mySeasons.add("Summer");
-        mySeasons.add("Winter");
-        mySeasons.add("Autumn");
-        mySeasons.add("Spring");
-
-        spinnerSeasons.setAdapter(new ArrayAdapter<>(Select_IK_Indicator.this,
-                R.layout.support_simple_spinner_dropdown_item, mySeasons));
-
-        spinnerSeasons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                season = spinnerSeasons.getSelectedItem().toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        mySeasons = new ArrayList<>();
+//
+//        mySeasons.add("Summer");
+//        mySeasons.add("Winter");
+//        mySeasons.add("Autumn");
+//        mySeasons.add("Spring");
+//
+//        spinnerSeasons.setAdapter(new ArrayAdapter<>(Select_IK_Indicator.this,
+//                R.layout.support_simple_spinner_dropdown_item, mySeasons));
+//
+//        spinnerSeasons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                season = spinnerSeasons.getSelectedItem().toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 
         FirebaseRecyclerOptions<SummerIndicators> summerOptions =
                 new FirebaseRecyclerOptions.Builder<SummerIndicators>()
@@ -153,8 +153,8 @@ public class Select_IK_Indicator extends AppCompatActivity {
 //            }
 //        });
 
-        btnShowChecked.setOnClickListener(view -> {
-            Toast.makeText(Select_IK_Indicator.this, "Clicked on " + season, Toast.LENGTH_SHORT).show();
+//        btnShowChecked.setOnClickListener(view -> {
+//            Toast.makeText(Select_IK_Indicator.this, "Clicked on " + season, Toast.LENGTH_SHORT).show();
 
 //            switch (season)
 //            {
@@ -198,37 +198,37 @@ public class Select_IK_Indicator extends AppCompatActivity {
 //            int i = 1;
 //            while (i > 0)
 //            {
-                if(season == "Winter") {
-                    autumnRecyclerView.setVisibility(View.GONE);
-                    summerRecyclerView.setVisibility(View.GONE);
-                    springRecyclerView.setVisibility(View.GONE);
-                }
-                if(season == "Summer") {
-                    autumnRecyclerView.setVisibility(View.GONE);
-                    winterRecyclerView.setVisibility(View.GONE);
-                    springRecyclerView.setVisibility(View.GONE);
-                }
-                if(season == "Autumn") {
-                    winterRecyclerView.setVisibility(View.GONE);
-                    summerRecyclerView.setVisibility(View.GONE);
-                    springRecyclerView.setVisibility(View.GONE);
-                }
-                if(season == "Spring") {
-                    autumnRecyclerView.setVisibility(View.GONE);
-                    summerRecyclerView.setVisibility(View.GONE);
-                    winterRecyclerView.setVisibility(View.GONE);
-                }
-                if(season == null) {
+//                if(season == "Winter") {
+//                    autumnRecyclerView.setVisibility(View.GONE);
+//                    summerRecyclerView.setVisibility(View.GONE);
+//                    springRecyclerView.setVisibility(View.GONE);
+//                }
+//                if(season == "Summer") {
+//                    autumnRecyclerView.setVisibility(View.GONE);
+//                    winterRecyclerView.setVisibility(View.GONE);
+//                    springRecyclerView.setVisibility(View.GONE);
+//                }
+//                if(season == "Autumn") {
+//                    winterRecyclerView.setVisibility(View.GONE);
+//                    summerRecyclerView.setVisibility(View.GONE);
+//                    springRecyclerView.setVisibility(View.GONE);
+//                }
+//                if(season == "Spring") {
+//                    autumnRecyclerView.setVisibility(View.GONE);
+//                    summerRecyclerView.setVisibility(View.GONE);
+//                    winterRecyclerView.setVisibility(View.GONE);
+//                }
+                //if(season == null) {
                     autumnRecyclerView.setVisibility(View.VISIBLE);
                     summerRecyclerView.setVisibility(View.VISIBLE);
                     springRecyclerView.setVisibility(View.VISIBLE);
                     winterRecyclerView.setVisibility(View.VISIBLE);
-                }
-                if(season == "Spring" && season == "Summer" && season == "Autumn" && season == "Winter")
-                {
-                    Toast.makeText(this, "One season available for filtering", Toast.LENGTH_SHORT).show();
-                    //i = 0;
-                }
+//                }
+//                if(season == "Spring" && season == "Summer" && season == "Autumn" && season == "Winter")
+//                {
+//                    Toast.makeText(this, "One season available for filtering", Toast.LENGTH_SHORT).show();
+//                    //i = 0;
+//                }
 //
 //                i++;
 //            }
@@ -262,7 +262,7 @@ public class Select_IK_Indicator extends AppCompatActivity {
 //            {
 //                Toast.makeText(this, "One season available for filtering", Toast.LENGTH_SHORT).show();
 //            }
-        });
+        //});
 
 
         summerIndicatorsAdapter = new SummerIndicatorsAdapter(summerOptions);

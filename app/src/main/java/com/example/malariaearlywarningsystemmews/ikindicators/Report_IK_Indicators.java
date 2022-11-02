@@ -94,7 +94,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         setContentView(R.layout.activity_report_ik__indicators);
 
         ivIndicatorImage = findViewById(R.id.ivIndicatorImage);
-        ivIndicatorImageFromGallery = findViewById(R.id.ivIndicatorImageFromGallery);
+        //ivIndicatorImageFromGallery = findViewById(R.id.ivIndicatorImageFromGallery);
         etIndicatorDescription = findViewById(R.id.etIndicatorDescription);
         etIndicatorLocation = findViewById(R.id.etIndicatorLocation);
         btnSubmitIndicator = findViewById(R.id.btnSubmitIndicator);
@@ -172,7 +172,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
         {
             /*-----Opens our camera-----*/
             //openCamera();
-            Toast.makeText(this, "Permissions Granted on askCameraPermission()", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Permissions Granted on askCameraPermission()", Toast.LENGTH_SHORT).show();
             dispatchTakePictureIntent();
         }
 
@@ -180,7 +180,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         if (requestCode == CAMERA_PERM_CODE)
         {
             /*When the user accepts the request for the system to access camera*/
@@ -202,6 +202,8 @@ public class Report_IK_Indicators extends AppCompatActivity {
 //        //open camera app
 //        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //        startActivityForResult(camera, CAMERA_REQUEST_CODE);
+//        //Toast.makeText(this, "Camera Open Request", Toast.LENGTH_SHORT).show();
+//
 //    }
 
     @Override
@@ -220,7 +222,8 @@ public class Report_IK_Indicators extends AppCompatActivity {
                 Toast.makeText(this, "Camera opened", Toast.LENGTH_SHORT).show();
 
                 File f = new File(currentPhotoPath);
-                ivIndicatorImage.setImageURI(Uri.fromFile(f));
+                if(ivIndicatorImage != null)
+                    ivIndicatorImage.setImageURI(Uri.fromFile(f));
                 Toast.makeText(this, "URL of image is: " + Uri.fromFile(f), Toast.LENGTH_SHORT).show();
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
@@ -404,7 +407,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider,",
+                        "com.example.android.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
@@ -461,11 +464,8 @@ public class Report_IK_Indicators extends AppCompatActivity {
     //closes the activity when the user presses the phone 'back' button
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Report_IK_Indicators.this, MainActivity.class));
+        startActivity(new Intent(Report_IK_Indicators.this, Select_IK_Indicator.class));
         finish();
         super.onBackPressed();
     }
-
-
-
 }

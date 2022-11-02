@@ -19,8 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MalariaEarlyWarningSystemMEWS">
-        <activity android:name=".login.FacebookSignIn" />
-        <activity android:name=".login.GoogleSignIn" />
+        <activity android:name=".login.FacebookSignInActivity" />
+        <activity android:name=".login.GoogleSignInActivity" />
         <activity android:name=".ikindicators.Select_IK_Indicator" />
         <activity android:name=".extremeevents.View_Extreme_Events" />
         <activity android:name=".extremeevents.Report_Extreme_Events" />
@@ -37,22 +37,23 @@
             </intent-filter>
         </activity>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
 <!--        <provider-->
 <!--            android:name="androidx.core.content.FileProvider"-->
-<!--            android:authorities="com.example.android.fileprovider"-->
+<!--            android:authorities="${applicationId}.here.this.library.provider"-->
 <!--            android:exported="false"-->
 <!--            android:grantUriPermissions="true"-->
 <!--            tools:replace="android:authorities">-->
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.here.this.library.provider"
-            android:exported="false"
-            android:grantUriPermissions="true"
-            tools:replace="android:authorities">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
+
         </provider>
 
     </application>

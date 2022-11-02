@@ -115,12 +115,12 @@
                 android:layout_margin="15dp"
                 android:src="@drawable/google"/>
 
-            <ImageView
-                android:id="@+id/ivFacebook"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/facebook" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivFacebook"-->
+<!--                android:layout_width="48dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                android:src="@drawable/facebook" />-->
 
         </LinearLayout>
 

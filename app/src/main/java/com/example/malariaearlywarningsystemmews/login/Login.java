@@ -3,6 +3,7 @@ package com.example.malariaearlywarningsystemmews.login;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,8 +18,6 @@ import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.MainActivity;
 import com.example.malariaearlywarningsystemmews.R;
-import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
-import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
 import com.example.malariaearlywarningsystemmews.register.Register;
 import com.example.malariaearlywarningsystemmews.resetpassword.ResetPassword;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,8 +25,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
 
@@ -40,6 +37,9 @@ public class Login extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
 
+    ProgressDialog progressDialog;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
         btnResetPassword = findViewById(R.id.btnResetPassword);
-        ivFacebook = findViewById(R.id.ivFacebook);
+        //ivFacebook = findViewById(R.id.ivFacebook);
         ivGoogle = findViewById(R.id.ivGoogle);
 
         progressBar = findViewById(R.id.progressBar);
@@ -60,7 +60,11 @@ public class Login extends AppCompatActivity {
         //tests if there is a user is already active and email is verified
         if(user != null && user.isEmailVerified())
         {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Authenticating user...");
+            progressDialog.show();
             startActivity(new Intent(Login.this, MainActivity.class));
+            progressDialog.dismiss();
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -84,19 +88,19 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        ivFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =  new Intent(Login.this, FacebookSignIn.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-            }
-        });
+//        ivFacebook.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent =  new Intent(Login.this, FacebookSignInActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                startActivity(intent);
+//            }
+//        });
 
         ivGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(Login.this, GoogleSignIn.class);
+                Intent intent =  new Intent(Login.this, GoogleSignInActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }

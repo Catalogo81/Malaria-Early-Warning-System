@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.malariaearlywarningsystemmews.R;
 
-public class FacebookSignIn extends Login {
+public class FacebookSignInActivity extends Login {
 
     //CallbackManager callbackManager;
 
