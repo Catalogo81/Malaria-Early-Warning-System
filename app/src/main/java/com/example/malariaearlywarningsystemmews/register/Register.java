@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.malariaearlywarningsystemmews.MainActivity;
 import com.example.malariaearlywarningsystemmews.R;
 import com.example.malariaearlywarningsystemmews.classes.User;
 import com.example.malariaearlywarningsystemmews.extremeevents.Report_Extreme_Events;
@@ -26,6 +27,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ public class Register extends AppCompatActivity {
     ProgressBar progressBar;
     String userID, role;
     FirebaseAuth mAuth;
+    FirebaseUser currentUser;
 
     List<String> roles;
 
@@ -61,11 +64,12 @@ public class Register extends AppCompatActivity {
         userRoles = findViewById(R.id.userRoles);
 
         mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
         progressBar = findViewById(R.id.progressBar);
 
         roles = new ArrayList<>();
 
-        roles.add("Expert");
+        roles.add("Normal User");
         roles.add("Ambassador");
 
         userRoles.setAdapter(new ArrayAdapter<>(Register.this,
@@ -144,7 +148,7 @@ public class Register extends AppCompatActivity {
         }
         else if(phoneNumber.length() < 10)
         {
-            etRegisterPhoneNumber.setError("Password has to be >= 10 Characters");
+            etRegisterPhoneNumber.setError("Phone Number has to be >= 10 Characters");
             etRegisterPhoneNumber.requestFocus();
             return;
         }
@@ -180,16 +184,15 @@ public class Register extends AppCompatActivity {
 
                             if(task.isSuccessful())
                             {
-                                Toast.makeText(Register.this, "Successfully registered!", Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.VISIBLE);
-                                //userID = mAuth.getCurrentUser().getUid();
-
+                                currentUser.sendEmailVerification();
+                                clearUserData();
                                 startActivity(new Intent(Register.this, Login.class));
-
+                                Toast.makeText(Register.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
+                                progressBar.setVisibility(View.GONE);
                             }
                             else
                             {
-                                Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
                             }
 
@@ -199,12 +202,21 @@ public class Register extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
 
             }
         });
+    }
+
+    private void clearUserData() {
+        etRegisterPhoneNumber.setText("");
+        etRegisterConfirmPassword.setText("");
+        etRegisterPassword.setText("");
+        etRegisterEmailAddress.setText("");
+        etRegisterSurname.setText("");
+        etRegisterName.setText("");
     }
 
     //closes the activity when the user presses the phone 'back' button

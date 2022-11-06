@@ -3,19 +3,27 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_report_ik_indicator"
-            android:icon="@drawable/indicate"
-            android:title="Report IK Indicators" />
-        <item
-            android:id="@+id/nav_report_extreme_events"
-            android:icon="@drawable/extreme"
-            android:title="Report Extreme Events" />
+        <item android:title="Report" android:id="@+id/reports_nav_items">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_report_ik_indicator"
+                    android:icon="@drawable/indicate"
+                    android:title="Report IK Indicators" />
+                <item
+                    android:id="@+id/nav_report_extreme_events"
+                    android:icon="@drawable/extreme"
+                    android:title="Report Extreme Events" />
+
+            </menu>
+
+        </item>
 
     </group>
 
 
-    <item android:title="History">
+    <item android:title="History" android:id="@+id/indicators_nav_items">
 
         <menu>
 

@@ -12,8 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.malariaearlywarningsystemmews.R;
-import com.example.malariaearlywarningsystemmews.ikindicators.Report_IK_Indicators;
-import com.example.malariaearlywarningsystemmews.ikindicators.Select_IK_Indicator;
 import com.example.malariaearlywarningsystemmews.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,6 +66,9 @@ public class ResetPassword extends AppCompatActivity {
                                 Toast.makeText(ResetPassword.this, getString
                                                 (R.string.password_successfully_sent_to_your_email_address),
                                         Toast.LENGTH_LONG).show();
+
+                                //clears the data once user successfully reports an indicator
+                                clearData();
                             }
                             else
                             {
@@ -86,6 +87,12 @@ public class ResetPassword extends AppCompatActivity {
 
             }
         });
+    }
+
+    //clears the data once user successfully reports an indicator
+    private void clearData()
+    {
+        etResetEmail.setText("");
     }
 
     //closes the activity when the user presses the phone 'back' button

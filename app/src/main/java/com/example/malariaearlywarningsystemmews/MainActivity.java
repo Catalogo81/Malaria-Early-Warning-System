@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -50,12 +51,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     View viewHeader;
     Toolbar toolbar;
+    Menu nav_Menu;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference reference;
 
-    String userID, location;
+    String userID, location, role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +80,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setTitle("Malaria Early Warning System");
 
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         viewHeader = navigationView.getHeaderView(0);
+        nav_Menu = navigationView.getMenu();
 
         /*--- Navigation Drawer Menu----*/
         navigationView.bringToFront();
@@ -116,9 +120,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     String surname = userProfile.getSurname();
                     String email = userProfile.getEmail();
                     String number = userProfile.getPhoneNumber();
+                    role = userProfile.getRole();
 
-                    tv_header_fullName.setText(name + " " + surname);
+                    tv_header_fullName.setText(name + " " + surname + " (" + role + ")");
                     tv_header_email.setText(email);
+
+//                    Toast.makeText(MainActivity.this, "User role: " + role, Toast.LENGTH_SHORT).show();
+                    if(role.equals("Normal User"))
+                    {
+                        //hide the Role navigation items
+                        nav_Menu.findItem(R.id.nav_report_ik_indicator).setVisible(false);
+                        nav_Menu.findItem(R.id.nav_report_extreme_events).setVisible(false);
+                        nav_Menu.findItem(R.id.reports_nav_items).setVisible(false);
+                    }
                 }
             }
 
@@ -187,14 +201,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_report_ik_indicator:
-
                 startActivity(new Intent(getApplicationContext(), Select_IK_Indicator.class));
                 break;
 
             case R.id.nav_logout:
                 mAuth.signOut();
                 startActivity(new Intent(MainActivity.this, Login.class));
-               // startActivity(new Intent(MainActivity.this, Report_IK_Indicators.class));
                 break;
         }
 

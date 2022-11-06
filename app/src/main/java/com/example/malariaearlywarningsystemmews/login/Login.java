@@ -88,15 +88,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-//        ivFacebook.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent =  new Intent(Login.this, FacebookSignInActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                startActivity(intent);
-//            }
-//        });
-
         ivGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +139,6 @@ public class Login extends AppCompatActivity {
 
                     if(task.isSuccessful())
                     {
-
 //                        Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
 //                        startActivity(new Intent(Login.this, MainActivity.class));
 //                        progressBar.setVisibility(View.GONE);
@@ -161,16 +151,16 @@ public class Login extends AppCompatActivity {
                         }
                         else
                         {
-                            user.sendEmailVerification();
+                            //user.sendEmailVerification();
                             clearUserData();
-                            Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
 
                     }
                     else
                     {
-                        Toast.makeText(Login.this, "Login Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Login Error: " + task.getException(), Toast.LENGTH_LONG).show();
                         progressBar.setVisibility(View.GONE);
                     }
                 }
@@ -187,7 +177,6 @@ public class Login extends AppCompatActivity {
     }
 
     private void clearUserData() {
-
         //clearing text
         etPassword.setText("");
         etEmailAddress.setText("");

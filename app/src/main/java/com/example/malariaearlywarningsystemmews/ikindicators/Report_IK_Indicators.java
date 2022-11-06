@@ -219,7 +219,7 @@ public class Report_IK_Indicators extends AppCompatActivity {
 //                Bitmap image = (Bitmap) data.getExtras().get("data");
 //                ivIndicatorImage.setImageBitmap(image);
 
-                Toast.makeText(this, "Camera opened", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Camera opened", Toast.LENGTH_SHORT).show();
 
                 File f = new File(currentPhotoPath);
                 if(ivIndicatorImage != null)
