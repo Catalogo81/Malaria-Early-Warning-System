@@ -42,7 +42,7 @@ public class Register extends AppCompatActivity {
     Spinner userRoles;
 
     ProgressBar progressBar;
-    String userID, role;
+    String userID, role, id;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
 
@@ -176,6 +176,30 @@ public class Register extends AppCompatActivity {
                     //creating the User object and save to database
                     User user = new User(name, surname, email, phoneNumber, role);
 
+//                    mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//
+//                            if(task.isSuccessful())
+//                            {
+//                                //gets the user id of the current logged in user
+//                                userID = mAuth.getCurrentUser().getUid();
+//                                id = userID;
+//
+//                                User user = new User(name, surname, email, phoneNumber, role);
+//
+//                                reference.child(id).setValue(user);
+//                                Toast.makeText(CreateAccount.this, "Successfully created. Please check your email for verification", Toast.LENGTH_SHORT).show();
+//                                clearEntries();
+//
+//                            }
+//                            else
+//                            {
+//                                Toast.makeText(Register.this, "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -186,8 +210,10 @@ public class Register extends AppCompatActivity {
                             {
                                 currentUser.sendEmailVerification();
                                 clearUserData();
-                                startActivity(new Intent(Register.this, Login.class));
+
                                 Toast.makeText(Register.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
+
+                                startActivity(new Intent(Register.this, Login.class));
                                 progressBar.setVisibility(View.GONE);
                             }
                             else
