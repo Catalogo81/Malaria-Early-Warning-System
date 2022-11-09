@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else
         {
+            finish();
             super.onBackPressed();
         }
 
@@ -213,4 +214,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
