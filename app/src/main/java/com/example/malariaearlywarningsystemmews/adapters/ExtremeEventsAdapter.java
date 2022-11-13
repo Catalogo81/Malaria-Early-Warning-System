@@ -42,7 +42,7 @@ public class ExtremeEventsAdapter extends RecyclerView.Adapter<ExtremeEventsAdap
 
         holder.eventDescription.setText(observedExtremeEvents.getEventDescription());
         holder.eventDateReported.setText(observedExtremeEvents.getEventDate());
-        holder.eventReportedBy.setText(observedExtremeEvents.getEventUserEmail());
+        holder.eventReportedBy.setText(observedExtremeEvents.getEventUser());
 
         holder.eventLevel.setText(observedExtremeEvents.getEventLevel());
         if(holder.eventLevel.getText().toString().equals("Moderate"))

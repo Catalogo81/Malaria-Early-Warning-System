@@ -51,6 +51,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -72,8 +73,8 @@ public class Report_Extreme_Events extends AppCompatActivity {
 
     List<String> items;
 
-    String myCountry, myLatitude, myLongitude, eventLevel, currentPhotoPath,
-            userID, userEmail, extremeEvent, location, description, extremeEventImage;
+    String myCountry, myLatitude, myLongitude, eventLevel, currentPhotoPath, userName, eventUsername,
+            userSurname, userID, userEmail, extremeEvent, location, description, extremeEventImage;
 
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -162,6 +163,12 @@ public class Report_Extreme_Events extends AppCompatActivity {
 
             }
         });
+
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("user_name");
+        userSurname = intent.getStringExtra("user_surname");
+        eventUsername = userName + " " + userSurname;
+
     }
 
 
@@ -320,7 +327,7 @@ public class Report_Extreme_Events extends AppCompatActivity {
                     progressDialog.dismiss();
 
 
-                    ObservedExtremeEvents observedExtremeEvents = new ObservedExtremeEvents(extremeEvent, extremeEventImage, location, currentDateString, eventLevel, userEmail);
+                    ObservedExtremeEvents observedExtremeEvents = new ObservedExtremeEvents(extremeEvent, extremeEventImage, location, currentDateString, eventLevel, userEmail, eventUsername);
                     String imageUploadedId = databaseReference.push().getKey();
                     assert imageUploadedId != null;
                     databaseReference.child("ObservedExtremeEvents").child(imageUploadedId).setValue(observedExtremeEvents);

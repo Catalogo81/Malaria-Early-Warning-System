@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FirebaseUser user;
     DatabaseReference reference;
 
-    String userID, location, role;
+    String userID, location, role, name, surname;
+    Intent nameIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         tv_header_fullName = viewHeader.findViewById(R.id.tv_header_fullName);
         tv_header_email = viewHeader.findViewById(R.id.tv_header_email);
+        nameIntent = new Intent(MainActivity.this, Report_Extreme_Events.class);
 
         //get user details from firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -116,14 +118,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //check if user profile exists
                 if(userProfile != null)
                 {
-                    String name = userProfile.getName();
-                    String surname = userProfile.getSurname();
+                    name = userProfile.getName();
+                    surname = userProfile.getSurname();
                     String email = userProfile.getEmail();
                     String number = userProfile.getPhoneNumber();
                     //role = userProfile.getRole();
+                    //Toast.makeText(MainActivity.this, "" + name, Toast.LENGTH_SHORT).show();
 
-                    //tv_header_fullName.setText(name + " " + surname + " (" + role + ")");
+                    tv_header_fullName.setText(name + " " + surname);
                     tv_header_email.setText(email);
+
+                    //Intent nameIntent = new Intent(MainActivity.this, Report_Extreme_Events.class);
+                    //nameIntent.putExtra("user_name", name);
+//                    if(name != null)
+//                        startActivity(nameIntent);
+
 
 //                    Toast.makeText(MainActivity.this, "User role: " + role, Toast.LENGTH_SHORT).show();
 //                    if(role.equals("Normal User"))
@@ -150,6 +159,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent.setData(Uri.parse("https://interimdigitalsolutions.co.za/CUTReseach/"));
             startActivity(intent);
         });
+
+//        Intent nameIntent = new Intent(MainActivity.this, Report_Extreme_Events.class);
+//        nameIntent.putExtra("user_name", name);
+//        startActivity(nameIntent);
+
+//        Toast.makeText(this, "" + name, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -194,7 +209,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_report_extreme_events:
-                startActivity(new Intent(getApplicationContext(), Report_Extreme_Events.class));
+                //startActivity(new Intent(getApplicationContext(), Report_Extreme_Events.class));
+                nameIntent.putExtra("user_name", name);
+                nameIntent.putExtra("user_surname", surname);
+                    if(name != null)
+                        startActivity(nameIntent);
+                //Toast.makeText(MainActivity.this, "" + name, Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nav_view_ik_indicators:

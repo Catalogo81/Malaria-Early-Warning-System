@@ -12,17 +12,19 @@ public class ObservedExtremeEvents {
     private String eventDate;
     private String eventLevel;
     private String eventUserEmail;
+    private String eventUser;
 
     public ObservedExtremeEvents() {
     }
 
-    public ObservedExtremeEvents(String eventDescription, String eventImage, String eventLocation, String eventDate, String eventLevel, String eventUserEmail) {
+    public ObservedExtremeEvents(String eventDescription, String eventImage, String eventLocation, String eventDate, String eventLevel, String eventUserEmail, String eventUser) {
         this.eventDescription = eventDescription;
         this.eventImage = eventImage;
         this.eventLocation = eventLocation;
         this.eventDate = eventDate;
         this.eventLevel = eventLevel;
         this.eventUserEmail = eventUserEmail;
+        this.eventUser = eventUser;
     }
 
     public String getEventDescription() {
@@ -71,5 +73,13 @@ public class ObservedExtremeEvents {
 
     public void setEventUserEmail(String eventUserEmail) {
         this.eventUserEmail = eventUserEmail;
+    }
+
+    public String getEventUser() {
+        return eventUser;
+    }
+
+    public void setEventUser(String eventUser) {
+        this.eventUser = eventUser;
     }
 }
