@@ -61,32 +61,32 @@ public class Register extends AppCompatActivity {
         etRegisterPhoneNumber = findViewById(R.id.etRegisterPhoneNumber);
         tvBackToLogin = findViewById(R.id.tvBackToLogin);
         btnRegisterDetails = findViewById(R.id.btnRegisterDetails);
-        userRoles = findViewById(R.id.userRoles);
+        //userRoles = findViewById(R.id.userRoles);
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         progressBar = findViewById(R.id.progressBar);
 
-        roles = new ArrayList<>();
-
-        roles.add("Normal User");
-        roles.add("Ambassador");
-
-        userRoles.setAdapter(new ArrayAdapter<>(Register.this,
-                R.layout.support_simple_spinner_dropdown_item, roles));
-
-        userRoles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                role = userRoles.getSelectedItem().toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        roles = new ArrayList<>();
+//
+//        roles.add("Normal User");
+//        roles.add("Ambassador");
+//
+//        userRoles.setAdapter(new ArrayAdapter<>(Register.this,
+//                R.layout.support_simple_spinner_dropdown_item, roles));
+//
+//        userRoles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                role = userRoles.getSelectedItem().toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 
         btnRegisterDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,7 +174,7 @@ public class Register extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     //creating the User object and save to database
-                    User user = new User(name, surname, email, phoneNumber, role);
+                    User user = new User(name, surname, email, phoneNumber/*, role*/);
 
 //                    mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
 //                        @Override
@@ -218,7 +218,7 @@ public class Register extends AppCompatActivity {
                             }
                             else
                             {
-                                Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this, "Registration Unsuccessful: " + task.getException(), Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
                             }
 
@@ -228,7 +228,7 @@ public class Register extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(Register.this, "Registration Unsuccessful!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this, "Registration Unsuccessful: " + task.getException(), Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
 

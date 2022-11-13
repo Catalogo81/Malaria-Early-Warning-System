@@ -120,19 +120,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     String surname = userProfile.getSurname();
                     String email = userProfile.getEmail();
                     String number = userProfile.getPhoneNumber();
-                    role = userProfile.getRole();
+                    //role = userProfile.getRole();
 
-                    tv_header_fullName.setText(name + " " + surname + " (" + role + ")");
+                    //tv_header_fullName.setText(name + " " + surname + " (" + role + ")");
                     tv_header_email.setText(email);
 
 //                    Toast.makeText(MainActivity.this, "User role: " + role, Toast.LENGTH_SHORT).show();
-                    if(role.equals("Normal User"))
-                    {
-                        //hide the Role navigation items
-                        nav_Menu.findItem(R.id.nav_report_ik_indicator).setVisible(false);
-                        nav_Menu.findItem(R.id.nav_report_extreme_events).setVisible(false);
-                        nav_Menu.findItem(R.id.reports_nav_items).setVisible(false);
-                    }
+//                    if(role.equals("Normal User"))
+//                    {
+//                        //hide the Role navigation items
+//                        nav_Menu.findItem(R.id.nav_report_ik_indicator).setVisible(false);
+//                        nav_Menu.findItem(R.id.nav_report_extreme_events).setVisible(false);
+//                        nav_Menu.findItem(R.id.reports_nav_items).setVisible(false);
+//                    }
                 }
             }
 
