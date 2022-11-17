@@ -39,7 +39,7 @@ public class Register extends AppCompatActivity {
             etRegisterConfirmPassword, etRegisterPhoneNumber;
     Button btnRegisterDetails;
     TextView tvBackToLogin;
-    Spinner userRoles;
+    //Spinner userRoles;
 
     ProgressBar progressBar;
     String userID, role, id;
@@ -173,8 +173,11 @@ public class Register extends AppCompatActivity {
 
                 if(task.isSuccessful())
                 {
+                    //Manually assigning the role of Normal User
+                    role = "Normal User";
+
                     //creating the User object and save to database
-                    User user = new User(name, surname, email, phoneNumber/*, role*/);
+                    User user = new User(name, surname, email, phoneNumber, role);
 
 //                    mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
 //                        @Override
@@ -208,7 +211,10 @@ public class Register extends AppCompatActivity {
 
                             if(task.isSuccessful())
                             {
-                                currentUser.sendEmailVerification();
+                                //have to look at this exception
+                                //if(currentUser != null)
+                                    currentUser.sendEmailVerification();
+
                                 clearUserData();
 
                                 Toast.makeText(Register.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();

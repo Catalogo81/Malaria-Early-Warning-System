@@ -6,13 +6,13 @@ public class User {
 
     public User(){}
 
-    public User(String name, String surname, String email, String phoneNumber/*, String role*/)
+    public User(String name, String surname, String email, String phoneNumber, String role)
     {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.phoneNumber = phoneNumber;
-//        this.role = role;
+        this.role = role;
     }
 
     public String getName() {

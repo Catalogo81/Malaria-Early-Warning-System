@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     surname = userProfile.getSurname();
                     String email = userProfile.getEmail();
                     String number = userProfile.getPhoneNumber();
-                    //role = userProfile.getRole();
+                    role = userProfile.getRole();
                     //Toast.makeText(MainActivity.this, "" + name, Toast.LENGTH_SHORT).show();
 
                     tv_header_fullName.setText(name + " " + surname);
@@ -134,14 +134,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                        startActivity(nameIntent);
 
 
-//                    Toast.makeText(MainActivity.this, "User role: " + role, Toast.LENGTH_SHORT).show();
-//                    if(role.equals("Normal User"))
-//                    {
-//                        //hide the Role navigation items
-//                        nav_Menu.findItem(R.id.nav_report_ik_indicator).setVisible(false);
-//                        nav_Menu.findItem(R.id.nav_report_extreme_events).setVisible(false);
-//                        nav_Menu.findItem(R.id.reports_nav_items).setVisible(false);
-//                    }
+                    Toast.makeText(MainActivity.this, "User role: " + role, Toast.LENGTH_SHORT).show();
+                    if(role.equals("Normal User"))
+                    {
+                        //hide the Role navigation items
+                        nav_Menu.findItem(R.id.nav_report_ik_indicator).setVisible(false);
+                        nav_Menu.findItem(R.id.nav_report_extreme_events).setVisible(false);
+                        nav_Menu.findItem(R.id.reports_nav_items).setVisible(false);
+                    }
                 }
             }
 
@@ -159,12 +159,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent.setData(Uri.parse("https://interimdigitalsolutions.co.za/CUTReseach/"));
             startActivity(intent);
         });
-
-//        Intent nameIntent = new Intent(MainActivity.this, Report_Extreme_Events.class);
-//        nameIntent.putExtra("user_name", name);
-//        startActivity(nameIntent);
-
-//        Toast.makeText(this, "" + name, Toast.LENGTH_SHORT).show();
 
     }
 
